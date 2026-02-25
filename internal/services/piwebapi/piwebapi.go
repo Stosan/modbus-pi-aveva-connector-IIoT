@@ -30,7 +30,7 @@ func NewServiceClient(baseURL, username, password string) *ServiceClient {
 	}
 }
 
-func (c *ServiceClient) PushValue(webID string, value interface{}) error {
+func (c *ServiceClient) PushValue(webID string, value interface{}, debug bool) error {
 	url := fmt.Sprintf("%s/streams/%s/value", c.BaseURL, webID)
 
 	// payload := StreamValue{
@@ -70,7 +70,9 @@ payload := map[string]interface{}{
 		body, _ := io.ReadAll(resp.Body)
 		fmt.Printf("⚠️ PI Web API Error: %d - %s\n", resp.StatusCode, string(body))
 	} else {
-		fmt.Printf("✅ Successfully pushed to PI Web API (WebID: %s)\n", webID)
+		if debug {
+			fmt.Printf("✅ Successfully pushed to PI Web API (WebID: %s)\n", webID)
+		}
 	}
 	return nil
 }

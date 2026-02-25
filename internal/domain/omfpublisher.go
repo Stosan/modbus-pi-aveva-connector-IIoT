@@ -2,7 +2,6 @@ package domain
 
 import (
 	"aradel-pi/config"
-	"aradel-pi/internal/services/omf"
 	"context"
 	"fmt"
 	"log"
@@ -17,9 +16,6 @@ func (p *Publisher) StartOMFPublisher(ctx context.Context) {
 		log.Println("⚠️ No OMF gateways configured.")
 		return
 	}
-
-	omfBaseURL := p.OMFClient.PIServer.BaseURL + "/piwebapi/omf"
-	omfClient := omf.NewClient(omfBaseURL, p.OMFClient.PIServer.Username, p.OMFClient.PIServer.Password)
 
 	//fmt.Println("🛠️ Setting up OMF Structure...")
 	//omfClient.SetupOMF()
@@ -38,7 +34,7 @@ func (p *Publisher) StartOMFPublisher(ctx context.Context) {
 		metrics := &GatewayMetrics{}
 		go func(g config.Gateway) {
 			defer wg.Done()
-			p.processOMFGateway(ctx, g, omfClient, metrics, modeOMF)
+			p.processOMFGateway(ctx, g, metrics, modeOMF)
 		}(gw)
 	}
 

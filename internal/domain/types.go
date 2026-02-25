@@ -48,4 +48,5 @@ type Publisher struct {
 	OMFClient   *config.Config
 	PiWebClient *config.Config
 	Logger      *zap.Logger
+	Debug       bool
 }

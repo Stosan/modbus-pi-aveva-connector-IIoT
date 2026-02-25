@@ -32,13 +32,13 @@ func main() {
 	if err != nil {
 		log.Fatalf("❌ Failed to load config from embed: %v", err)
 	}
-
-	log.Printf("📡 Beginning Broadcast")
 	// 1. Start Publishers (Consumers)
 	piWebPublisher := domain.Publisher{
 		PiWebClient: cfg,
 		Logger:      logger,
+		Debug:       false,
 	}
+	// Block here until all gateway goroutines exit cleanly
 	piWebPublisher.StartPiWebAPIPublisher(ctx)
 
 	log.Println("🛑 Shutting down gracefully...")

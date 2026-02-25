@@ -7,209 +7,213 @@ import (
 	"context"
 	"encoding/binary"
 	"fmt"
-	"log"
 	"math"
 	"sync"
+	"sync/atomic"
 	"time"
-
-	"github.com/goburrow/modbus"
 	"go.uber.org/zap"
 )
 
 // processGateway isolates the connection and reading logic for a single gateway.
 // Reconnects gracefully without stalling other gateways.
 func (p *Publisher) processOMFGateway(ctx context.Context, gateway config.Gateway,
-	omfClient *omf.Client, metrics *GatewayMetrics,
+	 metrics *GatewayMetrics,
 	mode publishMode) {
-	p.Logger.Info("📡 Starting Data Collection Loop for Gateway: ", zap.String("gateway", gateway.Address))
-	handler := modbus.NewTCPClientHandler(gateway.Address)
-	handler.Timeout = 10 * time.Second
-	handler.SlaveId = byte(gateway.SlaveID)
+    const poolSize = 4 // tune to your Modbus slave's concurrent connection limit
+    delay := backoffBase
 
-	err := handler.Connect()
-	if err != nil {
-		log.Printf("❌ Modbus TCP Connect failed for %s: %v. Retrying in 10s...", gateway.Address, err)
-		sleepWithContext(ctx, 10*time.Second)
-	}
+  for {
+        select {
+        case <-ctx.Done():
+            p.Logger.Info("Gateway goroutine exiting", zap.String("gateway", gateway.Address))
+            return
+        default:
+        }
 
-	log.Printf("✅ Modbus TCP Connect successful for %s", gateway.Address)
+        pool, err := newModbusPool(gateway.Address, byte(gateway.SlaveID), poolSize)
+        if err != nil {
+            metrics.Reconnects.Add(1)
+            p.Logger.Error("Modbus pool init failed",
+                zap.String("gateway", gateway.Address),
+                zap.Error(err),
+                zap.Duration("retry_in", delay))
+            sleepWithContext(ctx, delay)
+            delay = nextBackoff(delay)
+            continue
+        }
+        delay = backoffBase // reset on success
 
-	// Create Modbus client
-	client := modbus.NewClient(handler)
-
-	// Single Mutex assigned to protect sequential Modbus queries cleanly
-	var mu sync.Mutex
-
-	for {
-		if ctx.Err() != nil {
-			log.Printf("🛑 Shutting down gateway loop for %s", gateway.Address)
-			return
+        piBaseURL := p.OMFClient.PIServer.BaseURL + "/piwebapi/omf"
+        omfClient := omf.NewClient(
+            piBaseURL,
+            p.OMFClient.PIServer.Username,
+            p.OMFClient.PIServer.Password,
+        )
+		if p.Debug {
+			p.Logger.Info("✅ Modbus pool ready", zap.String("gateway", gateway.Address))
 		}
 
-		// Enters polling loop
-		err = p.readTagsLoop(ctx, client, gateway, omfClient, nil, &mu, metrics)
-		if err != nil {
-			log.Printf("⚠️ Polling loop error on %s: %v. Reconnecting...", gateway.Address, err)
-		}
+        err = p.readTagsLoop(ctx, pool, gateway, omfClient, nil, metrics)
+        if err != nil {
+            p.Logger.Warn("Polling loop exited — will reconnect",
+                zap.String("gateway", gateway.Address),
+                zap.Error(err))
+        }
 
-		handler.Close()
-
-		if ctx.Err() != nil {
-			return
-		}
-
-		// Wait before attempting reconnection
-		sleepWithContext(ctx, 5*time.Second)
-	}
+        if ctx.Err() != nil {
+            return
+        }
+        sleepWithContext(ctx, 5*time.Second)
+    }
 }
+
 
 // processGateway isolates the connection and reading logic for a single gateway.
 // Reconnects gracefully without stalling other gateways.
-func (p *Publisher) processPiWebAPIGateway(ctx context.Context,
-	gateway config.Gateway, metrics *GatewayMetrics,
-	mode publishMode) {
-	var (
-		handler      modbus.TCPClientHandler
-		mu           sync.Mutex
-		client       modbus.Client
-		piWebService *piwebapi.ServiceClient
-	)
-	delay := backoffBase
-	for {
-		// ── Honour shutdown before attempting (re)connect ────────────────────
-		select {
-		case <-ctx.Done():
-			p.Logger.Info("Gateway goroutine exiting (shutdown)")
-			return
-		default:
+func (p *Publisher) processPiWebAPIGateway(
+    ctx context.Context,
+    gateway config.Gateway,
+    metrics *GatewayMetrics,
+    mode publishMode,
+) {
+    const poolSize = 4 // tune to your Modbus slave's concurrent connection limit
+    delay := backoffBase
+
+    for {
+        select {
+        case <-ctx.Done():
+            p.Logger.Info("Gateway goroutine exiting", zap.String("gateway", gateway.Address))
+            return
+        default:
+        }
+
+        pool, err := newModbusPool(gateway.Address, byte(gateway.SlaveID), poolSize)
+        if err != nil {
+            metrics.Reconnects.Add(1)
+            p.Logger.Error("Modbus pool init failed",
+                zap.String("gateway", gateway.Address),
+                zap.Error(err),
+                zap.Duration("retry_in", delay))
+            sleepWithContext(ctx, delay)
+            delay = nextBackoff(delay)
+            continue
+        }
+        delay = backoffBase // reset on success
+
+        piBaseURL := p.PiWebClient.PIServer.BaseURL + "/piwebapi"
+        piWebService := piwebapi.NewServiceClient(
+            piBaseURL,
+            p.PiWebClient.PIServer.Username,
+            p.PiWebClient.PIServer.Password,
+        )
+		if p.Debug {
+			p.Logger.Info("✅ Modbus pool ready", zap.String("gateway", gateway.Address))
 		}
 
-		p.Logger.Info("📡 Starting Data Collection Loop for Gateway: ", zap.String("gateway", gateway.Address))
-		handler := modbus.NewTCPClientHandler(gateway.Address)
-		handler.Timeout = 10 * time.Second
-		handler.SlaveId = byte(gateway.SlaveID)
+        err = p.readTagsLoop(ctx, pool, gateway, nil, piWebService, metrics)
+        if err != nil {
+            p.Logger.Warn("Polling loop exited — will reconnect",
+                zap.String("gateway", gateway.Address),
+                zap.Error(err))
+        }
 
-		err := handler.Connect()
-		if err != nil {
-			metrics.Reconnects.Add(1)
-			p.Logger.Error("Modbus connect failed — backing off",
-				zap.Error(err),
-				zap.Duration("retry_in", delay))
-			sleepWithContext(ctx, delay)
-			delay = nextBackoff(delay)
-			continue
-		}
-
-		p.Logger.Info("✅ Modbus TCP Connect successful for ", zap.String("gateway", gateway.Address))
-		client = modbus.NewClient(handler)
-		piBaseURL := p.PiWebClient.PIServer.BaseURL + "/piwebapi"
-		piWebService = piwebapi.NewServiceClient(piBaseURL, p.PiWebClient.PIServer.Username, p.PiWebClient.PIServer.Password)
-		break
-	}
-
-	for {
-		if ctx.Err() != nil {
-			p.Logger.Info("🛑 Shutting down gateway loop for ", zap.String("gateway", gateway.Address))
-			return
-		}
-
-		// Enters polling loop
-		err := p.readTagsLoop(ctx, client, gateway, nil, piWebService, &mu, metrics)
-		if err != nil {
-			p.Logger.Warn("⚠️ Polling loop error on %s: %v. Reconnecting...", zap.String("gateway", gateway.Address), zap.Error(err))
-		}
-
-		handler.Close()
-
-		if ctx.Err() != nil {
-			return
-		}
-
-		// Wait before attempting reconnection
-		sleepWithContext(ctx, 5*time.Second)
-	}
+        if ctx.Err() != nil {
+            return
+        }
+        sleepWithContext(ctx, 5*time.Second)
+    }
 }
 
 // readTagsLoop performs continuous sweeps over all tags locally for a gateway.
 func (p *Publisher) readTagsLoop(ctx context.Context,
-	client modbus.Client, gateway config.Gateway,
-	omfClient *omf.Client, piWebService *piwebapi.ServiceClient,
-	mu *sync.Mutex,
+	pool *modbusPool, 
+	gateway config.Gateway,
+	omfClient *omf.Client, 
+	piWebService *piwebapi.ServiceClient,
 	metrics *GatewayMetrics) error {
-	p.Logger.Info("Reading tags for gateway", zap.String("gateway", gateway.Address))
-	log := p.Logger.With(zap.String("gateway", gateway.Address))
-	tagCount := len(gateway.Tags)
-	for {
-		select {
-		case <-ctx.Done():
-			return nil
-		default:
-		}
+    log := p.Logger.With(zap.String("gateway", gateway.Address))
+    tagCount := len(gateway.Tags)
 
-		errorCount := 0
+    for {
+        select {
+        case <-ctx.Done():
+            return nil
+        default:
+        }
 
-		for _, tag := range gateway.Tags {
-			select {
-			case <-ctx.Done():
-				return nil
-			default:
-			}
-			mu.Lock()
-			res, err := client.ReadHoldingRegisters(tag.Register, 2)
-			mu.Unlock()
+        var (
+            wg         sync.WaitGroup
+            errCount   atomic.Int32
+            successCount atomic.Int32
+        )
 
-			if err != nil {
-				metrics.ReadError.Add(1)
-				log.Warn("Modbus read error",
-					zap.Uint16("register", tag.Register),
-					zap.String("device", tag.DeviceType),
-					zap.Error(err))
-				errorCount++
-				time.Sleep(2 * time.Second)
-				continue
-			}
+        for _, tag := range gateway.Tags {
+            tag := tag // capture
+            wg.Add(1)
+            go func() {
+                defer wg.Done()
 
-			// Raw bytes → IEEE 754 float with NaN/Inf guard
-			// Validate and convert float data
-			bits := binary.BigEndian.Uint32(res)
-			sensorValue := math.Float32frombits(bits)
-			if math.IsNaN(float64(sensorValue)) || math.IsInf(float64(sensorValue), 0) {
-				log.Error("Invalid sensor value (NaN/Inf) — discarding",
-					zap.Uint16("register", tag.Register),
-					zap.String("device", tag.DeviceType))
-				metrics.ReadError.Add(1)
-				errorCount++
-				continue
-			}
-			metrics.ReadSuccess.Add(1)
-			// Deliver payload upstream
-			p.logSensorValue(log, gateway.Address, tag, sensorValue)
-			pushErr := p.pushValue(tag, sensorValue, omfClient, piWebService)
-			if pushErr != nil {
-				metrics.UpstreamPushKO.Add(1)
-				log.Error("Upstream push failed",
-					zap.String("device", tag.DeviceType),
-					zap.Error(pushErr))
-			} else {
-				metrics.UpstreamPushOK.Add(1)
-			}
+                // Acquire a connection from the pool (non-blocking with ctx)
+                conn, err := pool.Acquire(ctx)
+                if err != nil {
+                    log.Warn("Failed to acquire Modbus connection", zap.Error(err))
+                    errCount.Add(1)
+                    return
+                }
+                defer pool.Release(conn)
 
-		}
-		// ── All tags failed → assume connection loss; exit for reconnect ─────
-		if tagCount > 0 && errorCount >= tagCount {
-			return fmt.Errorf("all %d tags failed — assuming Modbus connection loss", tagCount)
-		}
-		// If all tags failed for this gateway block, it strongly points to connection dropping.
-		// Exit to force a reconnect cascade.
-		if errorCount >= len(gateway.Tags) {
-			log.Warn("Degraded sweep — some tags failed",
-				zap.Int("failed", errorCount),
-				zap.Int("total", tagCount))
-		}
+                res, err := conn.ReadHoldingRegisters(tag.Register, 2)
+                if err != nil {
+                    metrics.ReadError.Add(1)
+                    log.Warn("Modbus read error",
+                        zap.Uint16("register", tag.Register),
+                        zap.String("device", tag.DeviceType),
+                        zap.Error(err))
+                    errCount.Add(1)
+                    time.Sleep(2 * time.Second)
+                    return
+                }
 
-		// Stagger between bulk sweeps per config requirement or arbitrary 10-sec scale
-		sleepWithContext(ctx, sweepInterval)
-	}
+                bits := binary.BigEndian.Uint32(res)
+                sensorValue := math.Float32frombits(bits)
+                if math.IsNaN(float64(sensorValue)) || math.IsInf(float64(sensorValue), 0) {
+                    log.Error("Invalid sensor value (NaN/Inf) — discarding",
+                        zap.Uint16("register", tag.Register),
+                        zap.String("device", tag.DeviceType))
+                    metrics.ReadError.Add(1)
+                    errCount.Add(1)
+                    return
+                }
+
+                metrics.ReadSuccess.Add(1)
+                successCount.Add(1)
+				if p.Debug {
+					p.logSensorValue(log, gateway.Address, tag, sensorValue)
+				}
+
+                if pushErr := piWebService.PushValue(tag.PIWebID, sensorValue, p.Debug); pushErr != nil {
+                    metrics.UpstreamPushKO.Add(1)
+                    log.Error("Upstream push failed",
+                        zap.String("device", tag.DeviceType),
+                        zap.Error(pushErr))
+                } else {
+                    metrics.UpstreamPushOK.Add(1)
+                }
+            }()
+        }
+
+        wg.Wait() // All tags in this sweep complete before sleeping
+
+        failed := int(errCount.Load())
+        if tagCount > 0 && failed >= tagCount {
+            return fmt.Errorf("all %d tags failed — assuming Modbus connection loss", tagCount)
+        }
+        if failed > 0 {
+            log.Warn("Degraded sweep", zap.Int("failed", failed), zap.Int("total", tagCount))
+        }
+
+        sleepWithContext(ctx, sweepInterval)
+    }
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -226,7 +230,7 @@ func (p *Publisher) pushValue(
 		return omfClient.SendOMFData(tag.OMFContainerID, value)
 	}
 	if piWebService != nil {
-		return piWebService.PushValue(tag.PIWebID, value)
+		return piWebService.PushValue(tag.PIWebID, value, p.Debug)
 	}
 	return nil
 }
