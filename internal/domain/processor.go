@@ -210,7 +210,6 @@ func (p *Publisher) readTagsLoop(ctx context.Context,
 		// Stagger between bulk sweeps per config requirement or arbitrary 10-sec scale
 		sleepWithContext(ctx, sweepInterval)
 	}
-	return nil
 }
 
 // ─────────────────────────────────────────────────────────────────────────────

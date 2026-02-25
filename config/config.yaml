@@ -473,75 +473,75 @@ gateways:
 
       # ── Wellhead Pressure (THP-PIT-001) ────────────────────────────────────
 
-      - name: "OGB-W3-3S-THP-PIT-001"
+      - name: OGB-W3-3S-THP-PIT-001
         register: 7138
-        device_type: "pressure"
-        omf_container_id: "OGB-W3-3S-THP-PIT-001"
-        pi_web_id: "REPLACE_PI_WEB_ID"
+        device_type: pressure
+        omf_container_id: OGB-W3-3S-THP-PIT-001
+        pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5Q9QQAAAUElEQVRBQVxPR0ItVzMtM1MtVEhQLVBJVC0wMDE
 
       # ── Flowline Pressure (FLP-PIT-002) ────────────────────────────────────
 
-      - name: "OGB-W3-3S-FLP-PIT-002"
+      - name: OGB-W3-3S-FLP-PIT-002
         register: 7141
-        device_type: "pressure"
-        omf_container_id: "OGB-W3-3S-FLP-PIT-002"
-        pi_web_id: "REPLACE_PI_WEB_ID"
+        device_type: pressure
+        omf_container_id: OGB-W3-3S-FLP-PIT-002
+        pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5Q9gQAAAUElEQVRBQVxPR0ItVzMtM1MtRkxQLVBJVC0wMDI
 
       # ── Casing Pressure (CHP-PIT-003) ───────────────────────────────────────
 
-      - name: "OGB-W3-3CHP-PIT-003"
+      - name: OGB-W3-3CHP-PIT-003
         register: 7144
-        device_type: "pressure"
-        omf_container_id: "OGB-W3-3CHP-PIT-003"
-        pi_web_id: "REPLACE_PI_WEB_ID"
+        device_type: pressure
+        omf_container_id: OGB-W3-3CHP-PIT-003
+        pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5Q9wQAAAUElEQVRBQVxPR0ItVzMtM0NIUC1QSVQtMDAz
 
       # ── Flowline Temperature (FLT-TIT-002) ─────────────────────────────────
 
-      - name: "OGB-W3-3S-FLT-TIT-002"
+      - name: OGB-W3-3S-FLT-TIT-002
         register: 7147
-        device_type: "temperature"
-        omf_container_id: "OGB-W3-3S-FLT-TIT-002"
-        pi_web_id: "REPLACE_PI_WEB_ID"
+        device_type: temperature
+        omf_container_id: OGB-W3-3S-FLT-TIT-002
+        pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5Q-AQAAAUElEQVRBQVxPR0ItVzMtM1MtRkxULVRJVC0wMDI
 
       # ── Wellhead Pressure (THP-PIT-001) ────────────────────────────────────
 
-      - name: "OGB-W3-4T-THP-PIT-001"
+      - name: OGB-W3-4T-THP-PIT-001
         register: 7151
-        device_type: "pressure"
-        omf_container_id: "OGB-W3-4T-THP-PIT-001"
-        pi_web_id: "REPLACE_PI_WEB_ID"
+        device_type: pressure
+        omf_container_id: OGB-W3-4T-THP-PIT-001
+        pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5Q-QQAAAUElEQVRBQVxPR0ItVzMtNFQtVEhQLVBJVC0wMDE
 
       # ── Flowline Pressure (FLP-PIT-002) ────────────────────────────────────
 
-      - name: "OGB-W3-4T-FLP-PIT-002"
+      - name: OGB-W3-4T-FLP-PIT-002
         register: 7154
-        device_type: "pressure"
-        omf_container_id: "OGB-W3-4T-FLP-PIT-002"
-        pi_web_id: "REPLACE_PI_WEB_ID"
+        device_type: pressure
+        omf_container_id: OGB-W3-4T-FLP-PIT-002
+        pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5Q-gQAAAUElEQVRBQVxPR0ItVzMtNFQtRkxQLVBJVC0wMDI
 
       # ── Casing Pressure (CHP-PIT-003) ───────────────────────────────────────
 
-      - name: "OGB-W3-4CHP-PIT-003"
+      - name: OGB-W3-4CHP-PIT-003
         register: 7157
-        device_type: "pressure"
-        omf_container_id: "OGB-W3-4CHP-PIT-003"
-        pi_web_id: "REPLACE_PI_WEB_ID"
+        device_type: pressure
+        omf_container_id: OGB-W3-4CHP-PIT-003
+        pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5Q-wQAAAUElEQVRBQVxPR0ItVzMtNENIUC1QSVQtMDAz
 
       # ── Wellhead Pressure (THP-PIT-001) ────────────────────────────────────
 
-      - name: "OGB-W3-5L-THP-PIT-001"
+      - name: OGB-W3-5L-THP-PIT-001
         register: 7160
-        device_type: "pressure"
-        omf_container_id: "OGB-W3-5L-THP-PIT-001"
-        pi_web_id: "REPLACE_PI_WEB_ID"
+        device_type: pressure
+        omf_container_id: OGB-W3-5L-THP-PIT-001
+        pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5Q_AQAAAUElEQVRBQVxPR0ItVzMtNUwtVEhQLVBJVC0wMDE
 
       # ── Flowline Pressure (FLP-PIT-002) ────────────────────────────────────
 
-      - name: "OGB-W3-5L-FLP-PIT-002"
+      - name: OGB-W3-5L-FLP-PIT-002
         register: 7163
-        device_type: "pressure"
-        omf_container_id: "OGB-W3-5L-FLP-PIT-002"
-        pi_web_id: "REPLACE_PI_WEB_ID"
+        device_type: pressure
+        omf_container_id: OGB-W3-5L-FLP-PIT-002
+        pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5Q_QQAAAUElEQVRBQVxPR0ItVzMtNUwtRkxQLVBJVC0wMDI
 
       # ── Casing Pressure (CHP-PIT-003) ───────────────────────────────────────
 
@@ -549,7 +549,7 @@ gateways:
         register: 7166
         device_type: "pressure"
         omf_container_id: "OGB-W3-5CHP-PIT-003"
-        pi_web_id: "REPLACE_PI_WEB_ID"
+        pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5Q_gQAAAUElEQVRBQVxPR0ItVzMtNUNIUC1QSVQtMDAz
 
       # ── Wellhead Pressure (THP-PIT-001) ────────────────────────────────────
 
@@ -557,7 +557,7 @@ gateways:
         register: 7169
         device_type: "pressure"
         omf_container_id: "OGB-W3-5S-THP-PIT-001"
-        pi_web_id: "REPLACE_PI_WEB_ID"
+        pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5Q_wQAAAUElEQVRBQVxPR0ItVzMtNVMtVEhQLVBJVC0wMDE
 
       # ── Flowline Pressure (FLP-PIT-002) ────────────────────────────────────
 
@@ -565,7 +565,7 @@ gateways:
         register: 7172
         device_type: "pressure"
         omf_container_id: "OGB-W3-5S-FLP-PIT-002"
-        pi_web_id: "REPLACE_PI_WEB_ID"
+        pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5QAAUAAAUElEQVRBQVxPR0ItVzMtNVMtRkxQLVBJVC0wMDI
 
       # ── Flowline Temperature (FLT-TIT-002) ─────────────────────────────────
 
@@ -573,13 +573,13 @@ gateways:
         register: 7175
         device_type: "temperature"
         omf_container_id: "OGB-W3-5L-FLT-TIT-002"
-        pi_web_id: "REPLACE_PI_WEB_ID"
+        pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5QAQUAAAUElEQVRBQVxPR0ItVzMtNUwtRkxULVRJVC0wMDI
 
       - name: "OGB-W3-5S-FLT-TIT-002"
         register: 7179
         device_type: "temperature"
         omf_container_id: "OGB-W3-5S-FLT-TIT-002"
-        pi_web_id: "REPLACE_PI_WEB_ID"
+        pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5QAgUAAAUElEQVRBQVxPR0ItVzMtNVMtRkxULVRJVC0wMDI
 
       # ── Wellhead Pressure (THP-PIT-001) ────────────────────────────────────
 
@@ -587,7 +587,7 @@ gateways:
         register: 7183
         device_type: "pressure"
         omf_container_id: "OGB-W9-9L-THP-PIT-001"
-        pi_web_id: "REPLACE_PI_WEB_ID"
+        pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5QAwUAAAUElEQVRBQVxPR0ItVzktOUwtVEhQLVBJVC0wMDE
 
       # ── Flowline Pressure (FLP-PIT-002) ────────────────────────────────────
 
@@ -595,7 +595,7 @@ gateways:
         register: 7186
         device_type: "pressure"
         omf_container_id: "OGB-W9-9L-FLP-PIT-002"
-        pi_web_id: "REPLACE_PI_WEB_ID"
+        pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5QBAUAAAUElEQVRBQVxPR0ItVzktOUwtRkxQLVBJVC0wMDI
 
       # ── Casing Pressure (CHP-PIT-003) ───────────────────────────────────────
       # NOTE: Register 7189 is shared between W9-9CHP-PIT-003 and W9-9L-FLT-TIT-002
@@ -605,7 +605,7 @@ gateways:
         register: 7189
         device_type: "pressure"
         omf_container_id: "OGB-W9-9CHP-PIT-003"
-        pi_web_id: "REPLACE_PI_WEB_ID"
+        pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5QBQUAAAUElEQVRBQVxPR0ItVzktOUNIUC1QSVQtMDAz
 
       # ── Wellhead Pressure (THP-PIT-001) ────────────────────────────────────
 
@@ -613,7 +613,7 @@ gateways:
         register: 7192
         device_type: "pressure"
         omf_container_id: "OGB-W9-9S-THP-PIT-001"
-        pi_web_id: "REPLACE_PI_WEB_ID"
+        pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5QBgUAAAUElEQVRBQVxPR0ItVzktOVMtVEhQLVBJVC0wMDE
 
       # ── Flowline Pressure (FLP-PIT-002) ────────────────────────────────────
 
@@ -621,7 +621,7 @@ gateways:
         register: 7195
         device_type: "pressure"
         omf_container_id: "OGB-W9-9S-FLP-PIT-002"
-        pi_web_id: "REPLACE_PI_WEB_ID"
+        pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5QBwUAAAUElEQVRBQVxPR0ItVzktOVMtRkxQLVBJVC0wMDI
 
       # ── Flowline Temperature (FLT-TIT-002) ─────────────────────────────────
 
@@ -629,13 +629,13 @@ gateways:
         register: 7189
         device_type: "temperature"
         omf_container_id: "OGB-W9-9L-FLT-TIT-002"
-        pi_web_id: "REPLACE_PI_WEB_ID"
+        pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5QCAUAAAUElEQVRBQVxPR0ItVzktOUwtRkxULVRJVC0wMDI
 
       - name: "OGB-W9-9S-FLT-TIT-002"
         register: 7202
         device_type: "temperature"
         omf_container_id: "OGB-W9-9S-FLT-TIT-002"
-        pi_web_id: "REPLACE_PI_WEB_ID"
+        pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5QCQUAAAUElEQVRBQVxPR0ItVzktOVMtRkxULVRJVC0wMDI
 
       # ── Wellhead Pressure (THP-PIT-001) ────────────────────────────────────
 
@@ -643,7 +643,7 @@ gateways:
         register: 7206
         device_type: "pressure"
         omf_container_id: "OGB-W9-14L-THP-PIT-001"
-        pi_web_id: "REPLACE_PI_WEB_ID"
+        pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5QCgUAAAUElEQVRBQVxPR0ItVzktMTRMLVRIUC1QSVQtMDAx
 
       # ── Flowline Pressure (FLP-PIT-002) ────────────────────────────────────
 
@@ -651,7 +651,7 @@ gateways:
         register: 7209
         device_type: "pressure"
         omf_container_id: "OGB-W9-14L-FLP-PIT-002"
-        pi_web_id: "REPLACE_PI_WEB_ID"
+        pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5QCwUAAAUElEQVRBQVxPR0ItVzktMTRMLUZMUC1QSVQtMDAy
 
       # ── Casing Pressure (CHP-PIT-003) ───────────────────────────────────────
 
@@ -659,7 +659,7 @@ gateways:
         register: 7212
         device_type: "pressure"
         omf_container_id: "OGB-W9-14CHP-PIT-003"
-        pi_web_id: "REPLACE_PI_WEB_ID"
+        pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5QDAUAAAUElEQVRBQVxPR0ItVzktMTRDSFAtUElULTAwMw
 
       # ── Wellhead Pressure (THP-PIT-001) ────────────────────────────────────
 
@@ -667,7 +667,7 @@ gateways:
         register: 7215
         device_type: "pressure"
         omf_container_id: "OGB-W9-14S-THP-PIT-001"
-        pi_web_id: "REPLACE_PI_WEB_ID"
+        pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5QDQUAAAUElEQVRBQVxPR0ItVzktMTRTLVRIUC1QSVQtMDAx
 
       # ── Flowline Pressure (FLP-PIT-002) ────────────────────────────────────
 
@@ -675,7 +675,7 @@ gateways:
         register: 7218
         device_type: "pressure"
         omf_container_id: "OGB-W9-14S-FLP-PIT-002"
-        pi_web_id: "REPLACE_PI_WEB_ID"
+        pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5QDgUAAAUElEQVRBQVxPR0ItVzktMTRTLUZMUC1QSVQtMDAy
 
       # ── Flowline Temperature (FLT-TIT-002) ─────────────────────────────────
 
@@ -683,13 +683,13 @@ gateways:
         register: 7221
         device_type: "temperature"
         omf_container_id: "OGB-W9-14L-FLT-TIT-002"
-        pi_web_id: "REPLACE_PI_WEB_ID"
+        pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5QDwUAAAUElEQVRBQVxPR0ItVzktMTRMLUZMVC1USVQtMDAy
 
       - name: "OGB-W9-14S-FLT-TIT-002"
         register: 7225
         device_type: "temperature"
         omf_container_id: "OGB-W9-14S-FLT-TIT-002"
-        pi_web_id: "REPLACE_PI_WEB_ID"
+        pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5QEAUAAAUElEQVRBQVxPR0ItVzktMTRTLUZMVC1USVQtMDAy
 
       # ── Wellhead Pressure (THP-PIT-001) ────────────────────────────────────
 
@@ -697,7 +697,7 @@ gateways:
         register: 7229
         device_type: "pressure"
         omf_container_id: "OGB-W9-15T-THP-PIT-001"
-        pi_web_id: "REPLACE_PI_WEB_ID"
+        pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5QEQUAAAUElEQVRBQVxPR0ItVzktMTVULVRIUC1QSVQtMDAx
 
       # ── Flowline Pressure (FLP-PIT-002) ────────────────────────────────────
 
