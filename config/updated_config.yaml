@@ -1,0 +1,2118 @@
+system:
+  log_level: "info"
+
+pi_server:
+  base_url: "https://10.70.65.53"
+  username: "NGDELTA\\samuelkehinde"
+  password: "Pi3vivASpt!"
+  insecure_tls: true
+
+alerts:
+  enabled: true
+  webhook_url: "https://hooks.slack.com/services/YOUR/WEBHOOK/URL"
+
+# gateways:
+#   - name: "Gateway_1"
+#     address: "41.206.30.202:502"
+#     slave_id: 1
+#     poll_interval: "10s"
+#     tags:
+#       - name: "OGB_10T_THP_PSI"
+#         register: 7047
+#         omf_container_id: "OGB_10T_THP_PSI"
+#         pi_web_id: "F1DP8-YT12cQNUGCaVzSmQUb5QGwQAAAUElEQVRBQVx..."
+#         device_type: "pressure"
+#       - name: "OGB_10T_CHP_PSI"
+#         register: 7050
+#         omf_container_id: "OGB_10T_CHP_PSI"
+#         pi_web_id: "ANOTHER_WEB_ID_HERE..."
+
+#   - name: "Gateway_2"
+#     address: "105.114.21.18:502"
+#     slave_id: 1
+#     poll_interval: "10s"
+#     tags:
+#       - name: "OGB_11T_THP_PSI"
+#         register: 7060
+#         omf_container_id: "OGB_11T_THP_PSI"
+#         pi_web_id: "YET_ANOTHER_WEB_ID..."
+
+gateways:
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # GATEWAY_1  |  41.206.30.202:502
+  # Sources: Wellhead Pressure (THP), Flowline Pressure (FLP),
+  #          Flowline Temperature (FLT), Casing Pressure (CHP),
+  #          Wellhead Temperature (WHT - partial)
+  # ═══════════════════════════════════════════════════════════════════════════
+  - name: "Gateway_1"
+    address: "41.206.30.202:502"
+    slave_id: 1
+    poll_interval: "10s"
+    tags:
+
+      # ── Wellhead Pressure (THP-PIT-001) ────────────────────────────────────
+
+      - name: "OGB-W1-1L-THP-PIT-001"
+        register: 7001
+        device_type: "pressure"
+        omf_container_id: "OGB-W1-1L-THP-PIT-001"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W1-1L-THP-PIT-001_BATT"
+        register: 7002
+        device_type: "battery"
+        omf_container_id: "OGB-W1-1L-THP-PIT-001_BATT"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W1-1L-THP-PIT-001_RSSI"
+        register: 7003
+        device_type: "rssi"
+        omf_container_id: "OGB-W1-1L-THP-PIT-001_RSSI"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W1-1S-THP-PIT-001"
+        register: 7010
+        device_type: "pressure"
+        omf_container_id: "OGB-W1-1S-THP-PIT-001"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W1-1S-THP-PIT-001_BATT"
+        register: 7011
+        device_type: "battery"
+        omf_container_id: "OGB-W1-1S-THP-PIT-001_BATT"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W1-1S-THP-PIT-001_RSSI"
+        register: 7012
+        device_type: "rssi"
+        omf_container_id: "OGB-W1-1S-THP-PIT-001_RSSI"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W1-7L-THP-PIT-001"
+        register: 7020
+        device_type: "pressure"
+        omf_container_id: "OGB-W1-7L-THP-PIT-001"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W1-7L-THP-PIT-001_BATT"
+        register: 7021
+        device_type: "battery"
+        omf_container_id: "OGB-W1-7L-THP-PIT-001_BATT"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W1-7L-THP-PIT-001_RSSI"
+        register: 7022
+        device_type: "rssi"
+        omf_container_id: "OGB-W1-7L-THP-PIT-001_RSSI"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W1-7S-THP-PIT-001"
+        register: 7029
+        device_type: "pressure"
+        omf_container_id: "OGB-W1-7S-THP-PIT-001"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W1-7S-THP-PIT-001_BATT"
+        register: 7030
+        device_type: "battery"
+        omf_container_id: "OGB-W1-7S-THP-PIT-001_BATT"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W1-7S-THP-PIT-001_RSSI"
+        register: 7031
+        device_type: "rssi"
+        omf_container_id: "OGB-W1-7S-THP-PIT-001_RSSI"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W1-10T-THP-PIT-001"
+        register: 7047
+        device_type: "pressure"
+        omf_container_id: "OGB-W1-10T-THP-PIT-001"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W1-10T-THP-PIT-001_BATT"
+        register: 7048
+        device_type: "battery"
+        omf_container_id: "OGB-W1-10T-THP-PIT-001_BATT"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W1-10T-THP-PIT-001_RSSI"
+        register: 7049
+        device_type: "rssi"
+        omf_container_id: "OGB-W1-10T-THP-PIT-001_RSSI"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W1-11T-THP-PIT-001"
+        register: 7060
+        device_type: "pressure"
+        omf_container_id: "OGB-W1-11T-THP-PIT-001"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W1-11T-THP-PIT-001_BATT"
+        register: 7061
+        device_type: "battery"
+        omf_container_id: "OGB-W1-11T-THP-PIT-001_BATT"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W1-11T-THP-PIT-001_RSSI"
+        register: 7062
+        device_type: "rssi"
+        omf_container_id: "OGB-W1-11T-THP-PIT-001_RSSI"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W1-12L-THP-PIT-001"
+        register: 7073
+        device_type: "pressure"
+        omf_container_id: "OGB-W1-12L-THP-PIT-001"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W1-12L-THP-PIT-001_BATT"
+        register: 7074
+        device_type: "battery"
+        omf_container_id: "OGB-W1-12L-THP-PIT-001_BATT"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W1-12L-THP-PIT-001_RSSI"
+        register: 7075
+        device_type: "rssi"
+        omf_container_id: "OGB-W1-12L-THP-PIT-001_RSSI"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W1-12S-THP-PIT-001"
+        register: 7082
+        device_type: "pressure"
+        omf_container_id: "OGB-W1-12S-THP-PIT-001"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W1-12S-THP-PIT-001_BATT"
+        register: 7083
+        device_type: "battery"
+        omf_container_id: "OGB-W1-12S-THP-PIT-001_BATT"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W1-12S-THP-PIT-001_RSSI"
+        register: 7084
+        device_type: "rssi"
+        omf_container_id: "OGB-W1-12S-THP-PIT-001_RSSI"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W1-13T-THP-PIT-001"
+        register: 7096
+        device_type: "pressure"
+        omf_container_id: "OGB-W1-13T-THP-PIT-001"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W1-13T-THP-PIT-001_BATT"
+        register: 7097
+        device_type: "battery"
+        omf_container_id: "OGB-W1-13T-THP-PIT-001_BATT"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W1-13T-THP-PIT-001_RSSI"
+        register: 7098
+        device_type: "rssi"
+        omf_container_id: "OGB-W1-13T-THP-PIT-001_RSSI"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W1-16L-THP-PIT-001"
+        register: 7109
+        device_type: "pressure"
+        omf_container_id: "OGB-W1-16L-THP-PIT-001"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W1-16L-THP-PIT-001_BATT"
+        register: 7110
+        device_type: "battery"
+        omf_container_id: "OGB-W1-16L-THP-PIT-001_BATT"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W1-16L-THP-PIT-001_RSSI"
+        register: 7111
+        device_type: "rssi"
+        omf_container_id: "OGB-W1-16L-THP-PIT-001_RSSI"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W1-16S-THP-PIT-001"
+        register: 7118
+        device_type: "pressure"
+        omf_container_id: "OGB-W1-16S-THP-PIT-001"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W1-16S-THP-PIT-001_BATT"
+        register: 7119
+        device_type: "battery"
+        omf_container_id: "OGB-W1-16S-THP-PIT-001_BATT"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W1-16S-THP-PIT-001_RSSI"
+        register: 7120
+        device_type: "rssi"
+        omf_container_id: "OGB-W1-16S-THP-PIT-001_RSSI"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      # ── Flowline Pressure (FLP-PIT-002) ────────────────────────────────────
+
+      - name: "OGB-W1-1L-FLP-PIT-002"
+        register: 7004
+        device_type: "pressure"
+        omf_container_id: "OGB-W1-1L-FLP-PIT-002"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W1-1L-FLP-PIT-002_BATT"
+        register: 7005
+        device_type: "battery"
+        omf_container_id: "OGB-W1-1L-FLP-PIT-002_BATT"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W1-1L-FLP-PIT-002_RSSI"
+        register: 7006
+        device_type: "rssi"
+        omf_container_id: "OGB-W1-1L-FLP-PIT-002_RSSI"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W1-1S-FLP-PIT-002"
+        register: 7013
+        device_type: "pressure"
+        omf_container_id: "OGB-W1-1S-FLP-PIT-002"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W1-1S-FLP-PIT-002_BATT"
+        register: 7014
+        device_type: "battery"
+        omf_container_id: "OGB-W1-1S-FLP-PIT-002_BATT"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W1-1S-FLP-PIT-002_RSSI"
+        register: 7015
+        device_type: "rssi"
+        omf_container_id: "OGB-W1-1S-FLP-PIT-002_RSSI"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W1-7L-FLP-PIT-002"
+        register: 7023
+        device_type: "pressure"
+        omf_container_id: "OGB-W1-7L-FLP-PIT-002"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W1-7L-FLP-PIT-002_BATT"
+        register: 7024
+        device_type: "battery"
+        omf_container_id: "OGB-W1-7L-FLP-PIT-002_BATT"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W1-7L-FLP-PIT-002_RSSI"
+        register: 7025
+        device_type: "rssi"
+        omf_container_id: "OGB-W1-7L-FLP-PIT-002_RSSI"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W1-7S-FLP-PIT-002"
+        register: 7032
+        device_type: "pressure"
+        omf_container_id: "OGB-W1-7S-FLP-PIT-002"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W1-7S-FLP-PIT-002_BATT"
+        register: 7033
+        device_type: "battery"
+        omf_container_id: "OGB-W1-7S-FLP-PIT-002_BATT"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W1-7S-FLP-PIT-002_RSSI"
+        register: 7034
+        device_type: "rssi"
+        omf_container_id: "OGB-W1-7S-FLP-PIT-002_RSSI"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W1-10T-FLP-PIT-002"
+        register: 7053
+        device_type: "pressure"
+        omf_container_id: "OGB-W1-10T-FLP-PIT-002"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W1-10T-FLP-PIT-002_BATT"
+        register: 7054
+        device_type: "battery"
+        omf_container_id: "OGB-W1-10T-FLP-PIT-002_BATT"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W1-10T-FLP-PIT-002_RSSI"
+        register: 7055
+        device_type: "rssi"
+        omf_container_id: "OGB-W1-10T-FLP-PIT-002_RSSI"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W1-11T-FLP-PIT-002"
+        register: 7066
+        device_type: "pressure"
+        omf_container_id: "OGB-W1-11T-FLP-PIT-002"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W1-11T-FLP-PIT-002_BATT"
+        register: 7067
+        device_type: "battery"
+        omf_container_id: "OGB-W1-11T-FLP-PIT-002_BATT"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W1-11T-FLP-PIT-002_RSSI"
+        register: 7068
+        device_type: "rssi"
+        omf_container_id: "OGB-W1-11T-FLP-PIT-002_RSSI"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W1-12L-FLP-PIT-002"
+        register: 7076
+        device_type: "pressure"
+        omf_container_id: "OGB-W1-12L-FLP-PIT-002"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W1-12L-FLP-PIT-002_BATT"
+        register: 7077
+        device_type: "battery"
+        omf_container_id: "OGB-W1-12L-FLP-PIT-002_BATT"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W1-12L-FLP-PIT-002_RSSI"
+        register: 7078
+        device_type: "rssi"
+        omf_container_id: "OGB-W1-12L-FLP-PIT-002_RSSI"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W1-12S-FLP-PIT-002"
+        register: 7085
+        device_type: "pressure"
+        omf_container_id: "OGB-W1-12S-FLP-PIT-002"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W1-12S-FLP-PIT-002_BATT"
+        register: 7086
+        device_type: "battery"
+        omf_container_id: "OGB-W1-12S-FLP-PIT-002_BATT"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W1-12S-FLP-PIT-002_RSSI"
+        register: 7087
+        device_type: "rssi"
+        omf_container_id: "OGB-W1-12S-FLP-PIT-002_RSSI"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W1-13T-FLP-PIT-002"
+        register: 7102
+        device_type: "pressure"
+        omf_container_id: "OGB-W1-13T-FLP-PIT-002"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W1-13T-FLP-PIT-002_BATT"
+        register: 7103
+        device_type: "battery"
+        omf_container_id: "OGB-W1-13T-FLP-PIT-002_BATT"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W1-13T-FLP-PIT-002_RSSI"
+        register: 7104
+        device_type: "rssi"
+        omf_container_id: "OGB-W1-13T-FLP-PIT-002_RSSI"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W1-16L-FLP-PIT-002"
+        register: 7112
+        device_type: "pressure"
+        omf_container_id: "OGB-W1-16L-FLP-PIT-002"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W1-16L-FLP-PIT-002_BATT"
+        register: 7113
+        device_type: "battery"
+        omf_container_id: "OGB-W1-16L-FLP-PIT-002_BATT"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W1-16L-FLP-PIT-002_RSSI"
+        register: 7114
+        device_type: "rssi"
+        omf_container_id: "OGB-W1-16L-FLP-PIT-002_RSSI"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W1-16S-FLP-PIT-002"
+        register: 7121
+        device_type: "pressure"
+        omf_container_id: "OGB-W1-16S-FLP-PIT-002"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W1-16S-FLP-PIT-002_BATT"
+        register: 7122
+        device_type: "battery"
+        omf_container_id: "OGB-W1-16S-FLP-PIT-002_BATT"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W1-16S-FLP-PIT-002_RSSI"
+        register: 7123
+        device_type: "rssi"
+        omf_container_id: "OGB-W1-16S-FLP-PIT-002_RSSI"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      # ── Casing Pressure (CHP-PIT-003) ───────────────────────────────────────
+
+      - name: "OGB-W1-1CHP-PIT-003"
+        register: 7007
+        device_type: "pressure"
+        omf_container_id: "OGB-W1-1CHP-PIT-003"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W1-1CHP-PIT-003_BATT"
+        register: 7008
+        device_type: "battery"
+        omf_container_id: "OGB-W1-1CHP-PIT-003_BATT"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W1-1CHP-PIT-003_RSSI"
+        register: 7009
+        device_type: "rssi"
+        omf_container_id: "OGB-W1-1CHP-PIT-003_RSSI"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W1-7CHP-PIT-003"
+        register: 7026
+        device_type: "pressure"
+        omf_container_id: "OGB-W1-7CHP-PIT-003"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W1-7CHP-PIT-003_BATT"
+        register: 7027
+        device_type: "battery"
+        omf_container_id: "OGB-W1-7CHP-PIT-003_BATT"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W1-7CHP-PIT-003_RSSI"
+        register: 7028
+        device_type: "rssi"
+        omf_container_id: "OGB-W1-7CHP-PIT-003_RSSI"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W1-10CHP-PIT-003"
+        register: 7050
+        device_type: "pressure"
+        omf_container_id: "OGB-W1-10CHP-PIT-003"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W1-10CHP-PIT-003_BATT"
+        register: 7051
+        device_type: "battery"
+        omf_container_id: "OGB-W1-10CHP-PIT-003_BATT"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W1-10CHP-PIT-003_RSSI"
+        register: 7052
+        device_type: "rssi"
+        omf_container_id: "OGB-W1-10CHP-PIT-003_RSSI"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W1-11CHP-PIT-003"
+        register: 7063
+        device_type: "pressure"
+        omf_container_id: "OGB-W1-11CHP-PIT-003"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W1-11CHP-PIT-003_BATT"
+        register: 7064
+        device_type: "battery"
+        omf_container_id: "OGB-W1-11CHP-PIT-003_BATT"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W1-11CHP-PIT-003_RSSI"
+        register: 7065
+        device_type: "rssi"
+        omf_container_id: "OGB-W1-11CHP-PIT-003_RSSI"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W1-12CHP-PIT-003"
+        register: 7079
+        device_type: "pressure"
+        omf_container_id: "OGB-W1-12CHP-PIT-003"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W1-12CHP-PIT-003_BATT"
+        register: 7080
+        device_type: "battery"
+        omf_container_id: "OGB-W1-12CHP-PIT-003_BATT"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W1-12CHP-PIT-003_RSSI"
+        register: 7081
+        device_type: "rssi"
+        omf_container_id: "OGB-W1-12CHP-PIT-003_RSSI"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W1-13CHP-PIT-003"
+        register: 7099
+        device_type: "pressure"
+        omf_container_id: "OGB-W1-13CHP-PIT-003"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W1-13CHP-PIT-003_BATT"
+        register: 7100
+        device_type: "battery"
+        omf_container_id: "OGB-W1-13CHP-PIT-003_BATT"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W1-13CHP-PIT-003_RSSI"
+        register: 7101
+        device_type: "rssi"
+        omf_container_id: "OGB-W1-13CHP-PIT-003_RSSI"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W1-16CHP-PIT-003"
+        register: 7115
+        device_type: "pressure"
+        omf_container_id: "OGB-W1-16CHP-PIT-003"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W1-16CHP-PIT-003_BATT"
+        register: 7116
+        device_type: "battery"
+        omf_container_id: "OGB-W1-16CHP-PIT-003_BATT"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W1-16CHP-PIT-003_RSSI"
+        register: 7117
+        device_type: "rssi"
+        omf_container_id: "OGB-W1-16CHP-PIT-003_RSSI"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      # ── Flowline Temperature (FLT-TIT-002) ─────────────────────────────────
+
+      - name: "OGB-W1-1L-FLT-TIT-002"
+        register: 7016
+        device_type: "temperature"
+        omf_container_id: "OGB-W1-1L-FLT-TIT-002"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W1-1L-FLT-TIT-002_BATT"
+        register: 7017
+        device_type: "battery"
+        omf_container_id: "OGB-W1-1L-FLT-TIT-002_BATT"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W1-1L-FLT-TIT-002_RSSI"
+        register: 7018
+        device_type: "rssi"
+        omf_container_id: "OGB-W1-1L-FLT-TIT-002_RSSI"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W1-7L-FLT-TIT-002"
+        register: 7035
+        device_type: "temperature"
+        omf_container_id: "OGB-W1-7L-FLT-TIT-002"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W1-7L-FLT-TIT-002_BATT"
+        register: 7036
+        device_type: "battery"
+        omf_container_id: "OGB-W1-7L-FLT-TIT-002_BATT"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W1-7L-FLT-TIT-002_RSSI"
+        register: 7037
+        device_type: "rssi"
+        omf_container_id: "OGB-W1-7L-FLT-TIT-002_RSSI"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W1-7S-FLT-TIT-002"
+        register: 7043
+        device_type: "temperature"
+        omf_container_id: "OGB-W1-7S-FLT-TIT-002"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W1-7S-FLT-TIT-002_BATT"
+        register: 7044
+        device_type: "battery"
+        omf_container_id: "OGB-W1-7S-FLT-TIT-002_BATT"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W1-7S-FLT-TIT-002_RSSI"
+        register: 7045
+        device_type: "rssi"
+        omf_container_id: "OGB-W1-7S-FLT-TIT-002_RSSI"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W1-10T-FLT-TIT-002"
+        register: 7056
+        device_type: "temperature"
+        omf_container_id: "OGB-W1-10T-FLT-TIT-002"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W1-10T-FLT-TIT-002_BATT"
+        register: 7057
+        device_type: "battery"
+        omf_container_id: "OGB-W1-10T-FLT-TIT-002_BATT"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W1-10T-FLT-TIT-002_RSSI"
+        register: 7058
+        device_type: "rssi"
+        omf_container_id: "OGB-W1-10T-FLT-TIT-002_RSSI"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W1-11T-FLT-TIT-002"
+        register: 7069
+        device_type: "temperature"
+        omf_container_id: "OGB-W1-11T-FLT-TIT-002"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W1-11T-FLT-TIT-002_BATT"
+        register: 7070
+        device_type: "battery"
+        omf_container_id: "OGB-W1-11T-FLT-TIT-002_BATT"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W1-11T-FLT-TIT-002_RSSI"
+        register: 7071
+        device_type: "rssi"
+        omf_container_id: "OGB-W1-11T-FLT-TIT-002_RSSI"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W1-12L-FLT-TIT-002"
+        register: 7088
+        device_type: "temperature"
+        omf_container_id: "OGB-W1-12L-FLT-TIT-002"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W1-12L-FLT-TIT-002_BATT"
+        register: 7089
+        device_type: "battery"
+        omf_container_id: "OGB-W1-12L-FLT-TIT-002_BATT"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W1-12L-FLT-TIT-002_RSSI"
+        register: 7090
+        device_type: "rssi"
+        omf_container_id: "OGB-W1-12L-FLT-TIT-002_RSSI"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W1-12S-FLT-TIT-002"
+        register: 7092
+        device_type: "temperature"
+        omf_container_id: "OGB-W1-12S-FLT-TIT-002"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W1-12S-FLT-TIT-002_BATT"
+        register: 7093
+        device_type: "battery"
+        omf_container_id: "OGB-W1-12S-FLT-TIT-002_BATT"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W1-12S-FLT-TIT-002_RSSI"
+        register: 7094
+        device_type: "rssi"
+        omf_container_id: "OGB-W1-12S-FLT-TIT-002_RSSI"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W1-13T-FLT-TIT-002"
+        register: 7105
+        device_type: "temperature"
+        omf_container_id: "OGB-W1-13T-FLT-TIT-002"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W1-13T-FLT-TIT-002_BATT"
+        register: 7106
+        device_type: "battery"
+        omf_container_id: "OGB-W1-13T-FLT-TIT-002_BATT"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W1-13T-FLT-TIT-002_RSSI"
+        register: 7107
+        device_type: "rssi"
+        omf_container_id: "OGB-W1-13T-FLT-TIT-002_RSSI"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W1-16L-FLT-TIT-002"
+        register: 7124
+        device_type: "temperature"
+        omf_container_id: "OGB-W1-16L-FLT-TIT-002"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W1-16L-FLT-TIT-002_BATT"
+        register: 7125
+        device_type: "battery"
+        omf_container_id: "OGB-W1-16L-FLT-TIT-002_BATT"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W1-16L-FLT-TIT-002_RSSI"
+        register: 7126
+        device_type: "rssi"
+        omf_container_id: "OGB-W1-16L-FLT-TIT-002_RSSI"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W1-16S-FLT-TIT-002"
+        register: 7128
+        device_type: "temperature"
+        omf_container_id: "OGB-W1-16S-FLT-TIT-002"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W1-16S-FLT-TIT-002_BATT"
+        register: 7129
+        device_type: "battery"
+        omf_container_id: "OGB-W1-16S-FLT-TIT-002_BATT"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W1-16S-FLT-TIT-002_RSSI"
+        register: 7130
+        device_type: "rssi"
+        omf_container_id: "OGB-W1-16S-FLT-TIT-002_RSSI"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      # ── Wellhead Temperature (WHT-TIT-001) — W1-7S only (sole GW1 register) ─
+
+      - name: "OGB-W1-7S-WHT-TIT-001"
+        register: 7039
+        device_type: "temperature"
+        omf_container_id: "OGB-W1-7S-WHT-TIT-001"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W1-7S-WHT-TIT-001_BATT"
+        register: 7040
+        device_type: "battery"
+        omf_container_id: "OGB-W1-7S-WHT-TIT-001_BATT"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W1-7S-WHT-TIT-001_RSSI"
+        register: 7041
+        device_type: "rssi"
+        omf_container_id: "OGB-W1-7S-WHT-TIT-001_RSSI"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # GATEWAY_2  |  105.114.21.18:502
+  # Sources: Wellhead Pressure (THP), Flowline Pressure (FLP),
+  #          Flowline Temperature (FLT), Casing Pressure (CHP),
+  #          Downstream Manifold Temperature (IM-TIT-001),
+  #          Vessel Pressure (V-PIT-001), Vessel Temperature (V-TIT-001)
+  # ═══════════════════════════════════════════════════════════════════════════
+  - name: "Gateway_2"
+    address: "105.114.21.18:502"
+    slave_id: 1
+    poll_interval: "10s"
+    tags:
+
+      # ── Downstream Manifold Temperature (IM-TIT-001) ────────────────────────
+
+      - name: "OGB-FS-IM-3S-TIT-001"
+        register: 7005
+        device_type: "temperature"
+        omf_container_id: "OGB-FS-IM-3S-TIT-001"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-FS-IM-3S-TIT-001_BATT"
+        register: 7006
+        device_type: "battery"
+        omf_container_id: "OGB-FS-IM-3S-TIT-001_BATT"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-FS-IM-3S-TIT-001_RSSI"
+        register: 7007
+        device_type: "rssi"
+        omf_container_id: "OGB-FS-IM-3S-TIT-001_RSSI"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      # ── Wellhead Pressure (THP-PIT-001) ────────────────────────────────────
+
+      - name: "OGB-W6-8L-THP-PIT-001"
+        register: 7009
+        device_type: "pressure"
+        omf_container_id: "OGB-W6-8L-THP-PIT-001"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W6-8L-THP-PIT-001_BATT"
+        register: 7010
+        device_type: "battery"
+        omf_container_id: "OGB-W6-8L-THP-PIT-001_BATT"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W6-8L-THP-PIT-001_RSSI"
+        register: 7011
+        device_type: "rssi"
+        omf_container_id: "OGB-W6-8L-THP-PIT-001_RSSI"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      # ── Flowline Pressure (FLP-PIT-002) ────────────────────────────────────
+
+      - name: "OGB-W6-8L-FLP-PIT-002"
+        register: 7012
+        device_type: "pressure"
+        omf_container_id: "OGB-W6-8L-FLP-PIT-002"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W6-8L-FLP-PIT-002_BATT"
+        register: 7013
+        device_type: "battery"
+        omf_container_id: "OGB-W6-8L-FLP-PIT-002_BATT"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W6-8L-FLP-PIT-002_RSSI"
+        register: 7014
+        device_type: "rssi"
+        omf_container_id: "OGB-W6-8L-FLP-PIT-002_RSSI"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      # ── Casing Pressure (CHP-PIT-003) ───────────────────────────────────────
+
+      - name: "OGB-W6-8CHP-PIT-003"
+        register: 7015
+        device_type: "pressure"
+        omf_container_id: "OGB-W6-8CHP-PIT-003"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W6-8CHP-PIT-003_BATT"
+        register: 7016
+        device_type: "battery"
+        omf_container_id: "OGB-W6-8CHP-PIT-003_BATT"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W6-8CHP-PIT-003_RSSI"
+        register: 7017
+        device_type: "rssi"
+        omf_container_id: "OGB-W6-8CHP-PIT-003_RSSI"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      # ── Wellhead Pressure (THP-PIT-001) ────────────────────────────────────
+
+      - name: "OGB-W6-8S-THP-PIT-001"
+        register: 7022
+        device_type: "pressure"
+        omf_container_id: "OGB-W6-8S-THP-PIT-001"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W6-8S-THP-PIT-001_BATT"
+        register: 7023
+        device_type: "battery"
+        omf_container_id: "OGB-W6-8S-THP-PIT-001_BATT"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W6-8S-THP-PIT-001_RSSI"
+        register: 7024
+        device_type: "rssi"
+        omf_container_id: "OGB-W6-8S-THP-PIT-001_RSSI"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      # ── Flowline Pressure (FLP-PIT-002) ────────────────────────────────────
+
+      - name: "OGB-W6-8S-FLP-PIT-002"
+        register: 7025
+        device_type: "pressure"
+        omf_container_id: "OGB-W6-8S-FLP-PIT-002"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W6-8S-FLP-PIT-002_BATT"
+        register: 7026
+        device_type: "battery"
+        omf_container_id: "OGB-W6-8S-FLP-PIT-002_BATT"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W6-8S-FLP-PIT-002_RSSI"
+        register: 7027
+        device_type: "rssi"
+        omf_container_id: "OGB-W6-8S-FLP-PIT-002_RSSI"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      # ── Flowline Temperature (FLT-TIT-002) ─────────────────────────────────
+
+      - name: "OGB-W6-8L-FLT-TIT-002"
+        register: 7028
+        device_type: "temperature"
+        omf_container_id: "OGB-W6-8L-FLT-TIT-002"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W6-8L-FLT-TIT-002_BATT"
+        register: 7029
+        device_type: "battery"
+        omf_container_id: "OGB-W6-8L-FLT-TIT-002_BATT"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W6-8L-FLT-TIT-002_RSSI"
+        register: 7030
+        device_type: "rssi"
+        omf_container_id: "OGB-W6-8L-FLT-TIT-002_RSSI"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      # ── Downstream Manifold Temperature (IM-TIT-001) ────────────────────────
+
+      - name: "OGB-GP-IM-8L-TIT-001"
+        register: 7030
+        device_type: "temperature"
+        omf_container_id: "OGB-GP-IM-8L-TIT-001"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-GP-IM-8L-TIT-001_BATT"
+        register: 7031
+        device_type: "battery"
+        omf_container_id: "OGB-GP-IM-8L-TIT-001_BATT"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-GP-IM-8L-TIT-001_RSSI"
+        register: 7032
+        device_type: "rssi"
+        omf_container_id: "OGB-GP-IM-8L-TIT-001_RSSI"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      # ── Flowline Temperature (FLT-TIT-002) ─────────────────────────────────
+
+      - name: "OGB-W6-8S-FLT-TIT-002"
+        register: 7036
+        device_type: "temperature"
+        omf_container_id: "OGB-W6-8S-FLT-TIT-002"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W6-8S-FLT-TIT-002_BATT"
+        register: 7037
+        device_type: "battery"
+        omf_container_id: "OGB-W6-8S-FLT-TIT-002_BATT"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W6-8S-FLT-TIT-002_RSSI"
+        register: 7038
+        device_type: "rssi"
+        omf_container_id: "OGB-W6-8S-FLT-TIT-002_RSSI"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      # ── Downstream Manifold Temperature (IM-TIT-001) ────────────────────────
+
+      - name: "OGB-GP-IM-8S-TIT-001"
+        register: 7040
+        device_type: "temperature"
+        omf_container_id: "OGB-GP-IM-8S-TIT-001"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-GP-IM-8S-TIT-001_BATT"
+        register: 7041
+        device_type: "battery"
+        omf_container_id: "OGB-GP-IM-8S-TIT-001_BATT"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-GP-IM-8S-TIT-001_RSSI"
+        register: 7042
+        device_type: "rssi"
+        omf_container_id: "OGB-GP-IM-8S-TIT-001_RSSI"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      # ── Vessel Pressure (V-PIT-001) ─────────────────────────────────────────
+
+      - name: "OGB-FS-V101-PIT-001"
+        register: 7043
+        device_type: "pressure"
+        omf_container_id: "OGB-FS-V101-PIT-001"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-FS-V101-PIT-001_BATT"
+        register: 7044
+        device_type: "battery"
+        omf_container_id: "OGB-FS-V101-PIT-001_BATT"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-FS-V101-PIT-001_RSSI"
+        register: 7045
+        device_type: "rssi"
+        omf_container_id: "OGB-FS-V101-PIT-001_RSSI"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-FS-V102-PIT-001"
+        register: 7047
+        device_type: "pressure"
+        omf_container_id: "OGB-FS-V102-PIT-001"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-FS-V102-PIT-001_BATT"
+        register: 7048
+        device_type: "battery"
+        omf_container_id: "OGB-FS-V102-PIT-001_BATT"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-FS-V102-PIT-001_RSSI"
+        register: 7049
+        device_type: "rssi"
+        omf_container_id: "OGB-FS-V102-PIT-001_RSSI"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-FS-V103-PIT-001"
+        register: 7050
+        device_type: "pressure"
+        omf_container_id: "OGB-FS-V103-PIT-001"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-FS-V103-PIT-001_BATT"
+        register: 7051
+        device_type: "battery"
+        omf_container_id: "OGB-FS-V103-PIT-001_BATT"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-FS-V103-PIT-001_RSSI"
+        register: 7052
+        device_type: "rssi"
+        omf_container_id: "OGB-FS-V103-PIT-001_RSSI"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-FS-V111-PIT-001"
+        register: 7053
+        device_type: "pressure"
+        omf_container_id: "OGB-FS-V111-PIT-001"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-FS-V111-PIT-001_BATT"
+        register: 7054
+        device_type: "battery"
+        omf_container_id: "OGB-FS-V111-PIT-001_BATT"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-FS-V111-PIT-001_RSSI"
+        register: 7055
+        device_type: "rssi"
+        omf_container_id: "OGB-FS-V111-PIT-001_RSSI"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-FS-V5001-PIT-001"
+        register: 7056
+        device_type: "pressure"
+        omf_container_id: "OGB-FS-V5001-PIT-001"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-FS-V5001-PIT-001_BATT"
+        register: 7057
+        device_type: "battery"
+        omf_container_id: "OGB-FS-V5001-PIT-001_BATT"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-FS-V5001-PIT-001_RSSI"
+        register: 7058
+        device_type: "rssi"
+        omf_container_id: "OGB-FS-V5001-PIT-001_RSSI"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-FS-V5000-PIT-001"
+        register: 7059
+        device_type: "pressure"
+        omf_container_id: "OGB-FS-V5000-PIT-001"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-FS-V5000-PIT-001_BATT"
+        register: 7060
+        device_type: "battery"
+        omf_container_id: "OGB-FS-V5000-PIT-001_BATT"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-FS-V5000-PIT-001_RSSI"
+        register: 7061
+        device_type: "rssi"
+        omf_container_id: "OGB-FS-V5000-PIT-001_RSSI"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      # ── Vessel Temperature (V-TIT-001) ──────────────────────────────────────
+
+      - name: "OGB-FS-V101-TIT-001"
+        register: 7062
+        device_type: "temperature"
+        omf_container_id: "OGB-FS-V101-TIT-001"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-FS-V101-TIT-001_BATT"
+        register: 7063
+        device_type: "battery"
+        omf_container_id: "OGB-FS-V101-TIT-001_BATT"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-FS-V101-TIT-001_RSSI"
+        register: 7064
+        device_type: "rssi"
+        omf_container_id: "OGB-FS-V101-TIT-001_RSSI"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-FS-V103-TIT-001"
+        register: 7066
+        device_type: "temperature"
+        omf_container_id: "OGB-FS-V103-TIT-001"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-FS-V103-TIT-001_BATT"
+        register: 7067
+        device_type: "battery"
+        omf_container_id: "OGB-FS-V103-TIT-001_BATT"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-FS-V103-TIT-001_RSSI"
+        register: 7068
+        device_type: "rssi"
+        omf_container_id: "OGB-FS-V103-TIT-001_RSSI"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-FS-V102-TIT-001"
+        register: 7070
+        device_type: "temperature"
+        omf_container_id: "OGB-FS-V102-TIT-001"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-FS-V102-TIT-001_BATT"
+        register: 7071
+        device_type: "battery"
+        omf_container_id: "OGB-FS-V102-TIT-001_BATT"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-FS-V102-TIT-001_RSSI"
+        register: 7072
+        device_type: "rssi"
+        omf_container_id: "OGB-FS-V102-TIT-001_RSSI"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-FS-V111-TIT-001"
+        register: 7074
+        device_type: "temperature"
+        omf_container_id: "OGB-FS-V111-TIT-001"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-FS-V111-TIT-001_BATT"
+        register: 7075
+        device_type: "battery"
+        omf_container_id: "OGB-FS-V111-TIT-001_BATT"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-FS-V111-TIT-001_RSSI"
+        register: 7076
+        device_type: "rssi"
+        omf_container_id: "OGB-FS-V111-TIT-001_RSSI"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-FS-V5001-TIT-001"
+        register: 7078
+        device_type: "temperature"
+        omf_container_id: "OGB-FS-V5001-TIT-001"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-FS-V5001-TIT-001_BATT"
+        register: 7079
+        device_type: "battery"
+        omf_container_id: "OGB-FS-V5001-TIT-001_BATT"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-FS-V5001-TIT-001_RSSI"
+        register: 7080
+        device_type: "rssi"
+        omf_container_id: "OGB-FS-V5001-TIT-001_RSSI"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      # ── Downstream Manifold Temperature (IM-TIT-001) ────────────────────────
+
+      - name: "OGB-GP-IM-1L-TIT-001"
+        register: 7082
+        device_type: "temperature"
+        omf_container_id: "OGB-GP-IM-1L-TIT-001"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-GP-IM-1L-TIT-001_BATT"
+        register: 7083
+        device_type: "battery"
+        omf_container_id: "OGB-GP-IM-1L-TIT-001_BATT"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-GP-IM-1L-TIT-001_RSSI"
+        register: 7084
+        device_type: "rssi"
+        omf_container_id: "OGB-GP-IM-1L-TIT-001_RSSI"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-GP-IM-7L-TIT-001"
+        register: 7086
+        device_type: "temperature"
+        omf_container_id: "OGB-GP-IM-7L-TIT-001"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-GP-IM-7L-TIT-001_BATT"
+        register: 7087
+        device_type: "battery"
+        omf_container_id: "OGB-GP-IM-7L-TIT-001_BATT"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-GP-IM-7L-TIT-001_RSSI"
+        register: 7088
+        device_type: "rssi"
+        omf_container_id: "OGB-GP-IM-7L-TIT-001_RSSI"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-FS-IM-7S-TIT-001"
+        register: 7090
+        device_type: "temperature"
+        omf_container_id: "OGB-FS-IM-7S-TIT-001"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-FS-IM-7S-TIT-001_BATT"
+        register: 7091
+        device_type: "battery"
+        omf_container_id: "OGB-FS-IM-7S-TIT-001_BATT"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-FS-IM-7S-TIT-001_RSSI"
+        register: 7092
+        device_type: "rssi"
+        omf_container_id: "OGB-FS-IM-7S-TIT-001_RSSI"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-FS-IM-9S-TIT-001"
+        register: 7094
+        device_type: "temperature"
+        omf_container_id: "OGB-FS-IM-9S-TIT-001"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-FS-IM-9S-TIT-001_BATT"
+        register: 7095
+        device_type: "battery"
+        omf_container_id: "OGB-FS-IM-9S-TIT-001_BATT"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-FS-IM-9S-TIT-001_RSSI"
+        register: 7096
+        device_type: "rssi"
+        omf_container_id: "OGB-FS-IM-9S-TIT-001_RSSI"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-FS-IM-10T-TIT-001"
+        register: 7098
+        device_type: "temperature"
+        omf_container_id: "OGB-FS-IM-10T-TIT-001"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-FS-IM-10T-TIT-001_BATT"
+        register: 7099
+        device_type: "battery"
+        omf_container_id: "OGB-FS-IM-10T-TIT-001_BATT"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-FS-IM-10T-TIT-001_RSSI"
+        register: 7100
+        device_type: "rssi"
+        omf_container_id: "OGB-FS-IM-10T-TIT-001_RSSI"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-FS-IM-11T-TIT-001"
+        register: 7102
+        device_type: "temperature"
+        omf_container_id: "OGB-FS-IM-11T-TIT-001"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-FS-IM-11T-TIT-001_BATT"
+        register: 7103
+        device_type: "battery"
+        omf_container_id: "OGB-FS-IM-11T-TIT-001_BATT"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-FS-IM-11T-TIT-001_RSSI"
+        register: 7104
+        device_type: "rssi"
+        omf_container_id: "OGB-FS-IM-11T-TIT-001_RSSI"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-FS-IM-13T-TIT-001"
+        register: 7106
+        device_type: "temperature"
+        omf_container_id: "OGB-FS-IM-13T-TIT-001"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-FS-IM-13T-TIT-001_BATT"
+        register: 7107
+        device_type: "battery"
+        omf_container_id: "OGB-FS-IM-13T-TIT-001_BATT"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-FS-IM-13T-TIT-001_RSSI"
+        register: 7108
+        device_type: "rssi"
+        omf_container_id: "OGB-FS-IM-13T-TIT-001_RSSI"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-GP-IM-12L-TIT-001"
+        register: 7110
+        device_type: "temperature"
+        omf_container_id: "OGB-GP-IM-12L-TIT-001"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-GP-IM-12L-TIT-001_BATT"
+        register: 7111
+        device_type: "battery"
+        omf_container_id: "OGB-GP-IM-12L-TIT-001_BATT"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-GP-IM-12L-TIT-001_RSSI"
+        register: 7112
+        device_type: "rssi"
+        omf_container_id: "OGB-GP-IM-12L-TIT-001_RSSI"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-GP-IM-12S-TIT-001"
+        register: 7114
+        device_type: "temperature"
+        omf_container_id: "OGB-GP-IM-12S-TIT-001"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-GP-IM-12S-TIT-001_BATT"
+        register: 7115
+        device_type: "battery"
+        omf_container_id: "OGB-GP-IM-12S-TIT-001_BATT"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-GP-IM-12S-TIT-001_RSSI"
+        register: 7116
+        device_type: "rssi"
+        omf_container_id: "OGB-GP-IM-12S-TIT-001_RSSI"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-GP-IM-16L-TIT-001"
+        register: 7118
+        device_type: "temperature"
+        omf_container_id: "OGB-GP-IM-16L-TIT-001"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-GP-IM-16L-TIT-001_BATT"
+        register: 7119
+        device_type: "battery"
+        omf_container_id: "OGB-GP-IM-16L-TIT-001_BATT"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-GP-IM-16L-TIT-001_RSSI"
+        register: 7120
+        device_type: "rssi"
+        omf_container_id: "OGB-GP-IM-16L-TIT-001_RSSI"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-GP-IM-16S-TIT-001"
+        register: 7122
+        device_type: "temperature"
+        omf_container_id: "OGB-GP-IM-16S-TIT-001"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-GP-IM-16S-TIT-001_BATT"
+        register: 7123
+        device_type: "battery"
+        omf_container_id: "OGB-GP-IM-16S-TIT-001_BATT"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-GP-IM-16S-TIT-001_RSSI"
+        register: 7124
+        device_type: "rssi"
+        omf_container_id: "OGB-GP-IM-16S-TIT-001_RSSI"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-FS-IM-15T-TIT-001"
+        register: 7126
+        device_type: "temperature"
+        omf_container_id: "OGB-FS-IM-15T-TIT-001"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-FS-IM-15T-TIT-001_BATT"
+        register: 7127
+        device_type: "battery"
+        omf_container_id: "OGB-FS-IM-15T-TIT-001_BATT"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-FS-IM-15T-TIT-001_RSSI"
+        register: 7128
+        device_type: "rssi"
+        omf_container_id: "OGB-FS-IM-15T-TIT-001_RSSI"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-FS-IM-14L-TIT-001"
+        register: 7130
+        device_type: "temperature"
+        omf_container_id: "OGB-FS-IM-14L-TIT-001"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-FS-IM-14L-TIT-001_BATT"
+        register: 7131
+        device_type: "battery"
+        omf_container_id: "OGB-FS-IM-14L-TIT-001_BATT"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-FS-IM-14L-TIT-001_RSSI"
+        register: 7132
+        device_type: "rssi"
+        omf_container_id: "OGB-FS-IM-14L-TIT-001_RSSI"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-FS-IM-14S-TIT-001"
+        register: 7134
+        device_type: "temperature"
+        omf_container_id: "OGB-FS-IM-14S-TIT-001"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-FS-IM-14S-TIT-001_BATT"
+        register: 7135
+        device_type: "battery"
+        omf_container_id: "OGB-FS-IM-14S-TIT-001_BATT"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-FS-IM-14S-TIT-001_RSSI"
+        register: 7136
+        device_type: "rssi"
+        omf_container_id: "OGB-FS-IM-14S-TIT-001_RSSI"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      # ── Wellhead Pressure (THP-PIT-001) ────────────────────────────────────
+
+      - name: "OGB-W3-3S-THP-PIT-001"
+        register: 7138
+        device_type: "pressure"
+        omf_container_id: "OGB-W3-3S-THP-PIT-001"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W3-3S-THP-PIT-001_BATT"
+        register: 7139
+        device_type: "battery"
+        omf_container_id: "OGB-W3-3S-THP-PIT-001_BATT"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W3-3S-THP-PIT-001_RSSI"
+        register: 7140
+        device_type: "rssi"
+        omf_container_id: "OGB-W3-3S-THP-PIT-001_RSSI"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      # ── Flowline Pressure (FLP-PIT-002) ────────────────────────────────────
+
+      - name: "OGB-W3-3S-FLP-PIT-002"
+        register: 7141
+        device_type: "pressure"
+        omf_container_id: "OGB-W3-3S-FLP-PIT-002"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W3-3S-FLP-PIT-002_BATT"
+        register: 7142
+        device_type: "battery"
+        omf_container_id: "OGB-W3-3S-FLP-PIT-002_BATT"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W3-3S-FLP-PIT-002_RSSI"
+        register: 7143
+        device_type: "rssi"
+        omf_container_id: "OGB-W3-3S-FLP-PIT-002_RSSI"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      # ── Casing Pressure (CHP-PIT-003) ───────────────────────────────────────
+
+      - name: "OGB-W3-3CHP-PIT-003"
+        register: 7144
+        device_type: "pressure"
+        omf_container_id: "OGB-W3-3CHP-PIT-003"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W3-3CHP-PIT-003_BATT"
+        register: 7145
+        device_type: "battery"
+        omf_container_id: "OGB-W3-3CHP-PIT-003_BATT"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W3-3CHP-PIT-003_RSSI"
+        register: 7146
+        device_type: "rssi"
+        omf_container_id: "OGB-W3-3CHP-PIT-003_RSSI"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      # ── Flowline Temperature (FLT-TIT-002) ─────────────────────────────────
+
+      - name: "OGB-W3-3S-FLT-TIT-002"
+        register: 7147
+        device_type: "temperature"
+        omf_container_id: "OGB-W3-3S-FLT-TIT-002"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W3-3S-FLT-TIT-002_BATT"
+        register: 7148
+        device_type: "battery"
+        omf_container_id: "OGB-W3-3S-FLT-TIT-002_BATT"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W3-3S-FLT-TIT-002_RSSI"
+        register: 7149
+        device_type: "rssi"
+        omf_container_id: "OGB-W3-3S-FLT-TIT-002_RSSI"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      # ── Wellhead Pressure (THP-PIT-001) ────────────────────────────────────
+
+      - name: "OGB-W3-4T-THP-PIT-001"
+        register: 7151
+        device_type: "pressure"
+        omf_container_id: "OGB-W3-4T-THP-PIT-001"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W3-4T-THP-PIT-001_BATT"
+        register: 7152
+        device_type: "battery"
+        omf_container_id: "OGB-W3-4T-THP-PIT-001_BATT"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W3-4T-THP-PIT-001_RSSI"
+        register: 7153
+        device_type: "rssi"
+        omf_container_id: "OGB-W3-4T-THP-PIT-001_RSSI"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      # ── Flowline Pressure (FLP-PIT-002) ────────────────────────────────────
+
+      - name: "OGB-W3-4T-FLP-PIT-002"
+        register: 7154
+        device_type: "pressure"
+        omf_container_id: "OGB-W3-4T-FLP-PIT-002"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W3-4T-FLP-PIT-002_BATT"
+        register: 7155
+        device_type: "battery"
+        omf_container_id: "OGB-W3-4T-FLP-PIT-002_BATT"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W3-4T-FLP-PIT-002_RSSI"
+        register: 7156
+        device_type: "rssi"
+        omf_container_id: "OGB-W3-4T-FLP-PIT-002_RSSI"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      # ── Casing Pressure (CHP-PIT-003) ───────────────────────────────────────
+
+      - name: "OGB-W3-4CHP-PIT-003"
+        register: 7157
+        device_type: "pressure"
+        omf_container_id: "OGB-W3-4CHP-PIT-003"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W3-4CHP-PIT-003_BATT"
+        register: 7158
+        device_type: "battery"
+        omf_container_id: "OGB-W3-4CHP-PIT-003_BATT"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W3-4CHP-PIT-003_RSSI"
+        register: 7159
+        device_type: "rssi"
+        omf_container_id: "OGB-W3-4CHP-PIT-003_RSSI"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      # ── Wellhead Pressure (THP-PIT-001) ────────────────────────────────────
+
+      - name: "OGB-W3-5L-THP-PIT-001"
+        register: 7160
+        device_type: "pressure"
+        omf_container_id: "OGB-W3-5L-THP-PIT-001"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W3-5L-THP-PIT-001_BATT"
+        register: 7161
+        device_type: "battery"
+        omf_container_id: "OGB-W3-5L-THP-PIT-001_BATT"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W3-5L-THP-PIT-001_RSSI"
+        register: 7162
+        device_type: "rssi"
+        omf_container_id: "OGB-W3-5L-THP-PIT-001_RSSI"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      # ── Flowline Pressure (FLP-PIT-002) ────────────────────────────────────
+
+      - name: "OGB-W3-5L-FLP-PIT-002"
+        register: 7163
+        device_type: "pressure"
+        omf_container_id: "OGB-W3-5L-FLP-PIT-002"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W3-5L-FLP-PIT-002_BATT"
+        register: 7164
+        device_type: "battery"
+        omf_container_id: "OGB-W3-5L-FLP-PIT-002_BATT"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W3-5L-FLP-PIT-002_RSSI"
+        register: 7165
+        device_type: "rssi"
+        omf_container_id: "OGB-W3-5L-FLP-PIT-002_RSSI"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      # ── Casing Pressure (CHP-PIT-003) ───────────────────────────────────────
+
+      - name: "OGB-W3-5CHP-PIT-003"
+        register: 7166
+        device_type: "pressure"
+        omf_container_id: "OGB-W3-5CHP-PIT-003"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W3-5CHP-PIT-003_BATT"
+        register: 7167
+        device_type: "battery"
+        omf_container_id: "OGB-W3-5CHP-PIT-003_BATT"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W3-5CHP-PIT-003_RSSI"
+        register: 7168
+        device_type: "rssi"
+        omf_container_id: "OGB-W3-5CHP-PIT-003_RSSI"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      # ── Wellhead Pressure (THP-PIT-001) ────────────────────────────────────
+
+      - name: "OGB-W3-5S-THP-PIT-001"
+        register: 7169
+        device_type: "pressure"
+        omf_container_id: "OGB-W3-5S-THP-PIT-001"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W3-5S-THP-PIT-001_BATT"
+        register: 7170
+        device_type: "battery"
+        omf_container_id: "OGB-W3-5S-THP-PIT-001_BATT"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W3-5S-THP-PIT-001_RSSI"
+        register: 7171
+        device_type: "rssi"
+        omf_container_id: "OGB-W3-5S-THP-PIT-001_RSSI"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      # ── Flowline Pressure (FLP-PIT-002) ────────────────────────────────────
+
+      - name: "OGB-W3-5S-FLP-PIT-002"
+        register: 7172
+        device_type: "pressure"
+        omf_container_id: "OGB-W3-5S-FLP-PIT-002"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W3-5S-FLP-PIT-002_BATT"
+        register: 7173
+        device_type: "battery"
+        omf_container_id: "OGB-W3-5S-FLP-PIT-002_BATT"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W3-5S-FLP-PIT-002_RSSI"
+        register: 7174
+        device_type: "rssi"
+        omf_container_id: "OGB-W3-5S-FLP-PIT-002_RSSI"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      # ── Flowline Temperature (FLT-TIT-002) ─────────────────────────────────
+
+      - name: "OGB-W3-5L-FLT-TIT-002"
+        register: 7175
+        device_type: "temperature"
+        omf_container_id: "OGB-W3-5L-FLT-TIT-002"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W3-5L-FLT-TIT-002_BATT"
+        register: 7176
+        device_type: "battery"
+        omf_container_id: "OGB-W3-5L-FLT-TIT-002_BATT"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W3-5L-FLT-TIT-002_RSSI"
+        register: 7177
+        device_type: "rssi"
+        omf_container_id: "OGB-W3-5L-FLT-TIT-002_RSSI"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W3-5S-FLT-TIT-002"
+        register: 7179
+        device_type: "temperature"
+        omf_container_id: "OGB-W3-5S-FLT-TIT-002"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W3-5S-FLT-TIT-002_BATT"
+        register: 7180
+        device_type: "battery"
+        omf_container_id: "OGB-W3-5S-FLT-TIT-002_BATT"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W3-5S-FLT-TIT-002_RSSI"
+        register: 7181
+        device_type: "rssi"
+        omf_container_id: "OGB-W3-5S-FLT-TIT-002_RSSI"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      # ── Wellhead Pressure (THP-PIT-001) ────────────────────────────────────
+
+      - name: "OGB-W9-9L-THP-PIT-001"
+        register: 7183
+        device_type: "pressure"
+        omf_container_id: "OGB-W9-9L-THP-PIT-001"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W9-9L-THP-PIT-001_BATT"
+        register: 7184
+        device_type: "battery"
+        omf_container_id: "OGB-W9-9L-THP-PIT-001_BATT"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W9-9L-THP-PIT-001_RSSI"
+        register: 7185
+        device_type: "rssi"
+        omf_container_id: "OGB-W9-9L-THP-PIT-001_RSSI"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      # ── Flowline Pressure (FLP-PIT-002) ────────────────────────────────────
+
+      - name: "OGB-W9-9L-FLP-PIT-002"
+        register: 7186
+        device_type: "pressure"
+        omf_container_id: "OGB-W9-9L-FLP-PIT-002"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W9-9L-FLP-PIT-002_BATT"
+        register: 7187
+        device_type: "battery"
+        omf_container_id: "OGB-W9-9L-FLP-PIT-002_BATT"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W9-9L-FLP-PIT-002_RSSI"
+        register: 7188
+        device_type: "rssi"
+        omf_container_id: "OGB-W9-9L-FLP-PIT-002_RSSI"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      # ── Casing Pressure (CHP-PIT-003) ───────────────────────────────────────
+      # NOTE: Register 7189 is shared between W9-9CHP-PIT-003 and W9-9L-FLT-TIT-002
+      # in the source document. Verify with field team before deployment.
+
+      - name: "OGB-W9-9CHP-PIT-003"
+        register: 7189
+        device_type: "pressure"
+        omf_container_id: "OGB-W9-9CHP-PIT-003"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W9-9CHP-PIT-003_BATT"
+        register: 7190
+        device_type: "battery"
+        omf_container_id: "OGB-W9-9CHP-PIT-003_BATT"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W9-9CHP-PIT-003_RSSI"
+        register: 7191
+        device_type: "rssi"
+        omf_container_id: "OGB-W9-9CHP-PIT-003_RSSI"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      # ── Wellhead Pressure (THP-PIT-001) ────────────────────────────────────
+
+      - name: "OGB-W9-9S-THP-PIT-001"
+        register: 7192
+        device_type: "pressure"
+        omf_container_id: "OGB-W9-9S-THP-PIT-001"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W9-9S-THP-PIT-001_BATT"
+        register: 7193
+        device_type: "battery"
+        omf_container_id: "OGB-W9-9S-THP-PIT-001_BATT"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W9-9S-THP-PIT-001_RSSI"
+        register: 7194
+        device_type: "rssi"
+        omf_container_id: "OGB-W9-9S-THP-PIT-001_RSSI"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      # ── Flowline Pressure (FLP-PIT-002) ────────────────────────────────────
+
+      - name: "OGB-W9-9S-FLP-PIT-002"
+        register: 7195
+        device_type: "pressure"
+        omf_container_id: "OGB-W9-9S-FLP-PIT-002"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W9-9S-FLP-PIT-002_BATT"
+        register: 7196
+        device_type: "battery"
+        omf_container_id: "OGB-W9-9S-FLP-PIT-002_BATT"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W9-9S-FLP-PIT-002_RSSI"
+        register: 7197
+        device_type: "rssi"
+        omf_container_id: "OGB-W9-9S-FLP-PIT-002_RSSI"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      # ── Flowline Temperature (FLT-TIT-002) ─────────────────────────────────
+
+      - name: "OGB-W9-9L-FLT-TIT-002"
+        register: 7189
+        device_type: "temperature"
+        omf_container_id: "OGB-W9-9L-FLT-TIT-002"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W9-9L-FLT-TIT-002_BATT"
+        register: 7190
+        device_type: "battery"
+        omf_container_id: "OGB-W9-9L-FLT-TIT-002_BATT"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W9-9L-FLT-TIT-002_RSSI"
+        register: 7191
+        device_type: "rssi"
+        omf_container_id: "OGB-W9-9L-FLT-TIT-002_RSSI"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W9-9S-FLT-TIT-002"
+        register: 7202
+        device_type: "temperature"
+        omf_container_id: "OGB-W9-9S-FLT-TIT-002"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W9-9S-FLT-TIT-002_BATT"
+        register: 7203
+        device_type: "battery"
+        omf_container_id: "OGB-W9-9S-FLT-TIT-002_BATT"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W9-9S-FLT-TIT-002_RSSI"
+        register: 7204
+        device_type: "rssi"
+        omf_container_id: "OGB-W9-9S-FLT-TIT-002_RSSI"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      # ── Wellhead Pressure (THP-PIT-001) ────────────────────────────────────
+
+      - name: "OGB-W9-14L-THP-PIT-001"
+        register: 7206
+        device_type: "pressure"
+        omf_container_id: "OGB-W9-14L-THP-PIT-001"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W9-14L-THP-PIT-001_BATT"
+        register: 7207
+        device_type: "battery"
+        omf_container_id: "OGB-W9-14L-THP-PIT-001_BATT"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W9-14L-THP-PIT-001_RSSI"
+        register: 7208
+        device_type: "rssi"
+        omf_container_id: "OGB-W9-14L-THP-PIT-001_RSSI"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      # ── Flowline Pressure (FLP-PIT-002) ────────────────────────────────────
+
+      - name: "OGB-W9-14L-FLP-PIT-002"
+        register: 7209
+        device_type: "pressure"
+        omf_container_id: "OGB-W9-14L-FLP-PIT-002"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W9-14L-FLP-PIT-002_BATT"
+        register: 7210
+        device_type: "battery"
+        omf_container_id: "OGB-W9-14L-FLP-PIT-002_BATT"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W9-14L-FLP-PIT-002_RSSI"
+        register: 7211
+        device_type: "rssi"
+        omf_container_id: "OGB-W9-14L-FLP-PIT-002_RSSI"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      # ── Casing Pressure (CHP-PIT-003) ───────────────────────────────────────
+
+      - name: "OGB-W9-14CHP-PIT-003"
+        register: 7212
+        device_type: "pressure"
+        omf_container_id: "OGB-W9-14CHP-PIT-003"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W9-14CHP-PIT-003_BATT"
+        register: 7213
+        device_type: "battery"
+        omf_container_id: "OGB-W9-14CHP-PIT-003_BATT"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W9-14CHP-PIT-003_RSSI"
+        register: 7214
+        device_type: "rssi"
+        omf_container_id: "OGB-W9-14CHP-PIT-003_RSSI"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      # ── Wellhead Pressure (THP-PIT-001) ────────────────────────────────────
+
+      - name: "OGB-W9-14S-THP-PIT-001"
+        register: 7215
+        device_type: "pressure"
+        omf_container_id: "OGB-W9-14S-THP-PIT-001"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W9-14S-THP-PIT-001_BATT"
+        register: 7216
+        device_type: "battery"
+        omf_container_id: "OGB-W9-14S-THP-PIT-001_BATT"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W9-14S-THP-PIT-001_RSSI"
+        register: 7217
+        device_type: "rssi"
+        omf_container_id: "OGB-W9-14S-THP-PIT-001_RSSI"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      # ── Flowline Pressure (FLP-PIT-002) ────────────────────────────────────
+
+      - name: "OGB-W9-14S-FLP-PIT-002"
+        register: 7218
+        device_type: "pressure"
+        omf_container_id: "OGB-W9-14S-FLP-PIT-002"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W9-14S-FLP-PIT-002_BATT"
+        register: 7219
+        device_type: "battery"
+        omf_container_id: "OGB-W9-14S-FLP-PIT-002_BATT"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W9-14S-FLP-PIT-002_RSSI"
+        register: 7220
+        device_type: "rssi"
+        omf_container_id: "OGB-W9-14S-FLP-PIT-002_RSSI"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      # ── Flowline Temperature (FLT-TIT-002) ─────────────────────────────────
+
+      - name: "OGB-W9-14L-FLT-TIT-002"
+        register: 7221
+        device_type: "temperature"
+        omf_container_id: "OGB-W9-14L-FLT-TIT-002"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W9-14L-FLT-TIT-002_BATT"
+        register: 7222
+        device_type: "battery"
+        omf_container_id: "OGB-W9-14L-FLT-TIT-002_BATT"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W9-14L-FLT-TIT-002_RSSI"
+        register: 7223
+        device_type: "rssi"
+        omf_container_id: "OGB-W9-14L-FLT-TIT-002_RSSI"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W9-14S-FLT-TIT-002"
+        register: 7225
+        device_type: "temperature"
+        omf_container_id: "OGB-W9-14S-FLT-TIT-002"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W9-14S-FLT-TIT-002_BATT"
+        register: 7226
+        device_type: "battery"
+        omf_container_id: "OGB-W9-14S-FLT-TIT-002_BATT"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W9-14S-FLT-TIT-002_RSSI"
+        register: 7227
+        device_type: "rssi"
+        omf_container_id: "OGB-W9-14S-FLT-TIT-002_RSSI"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      # ── Wellhead Pressure (THP-PIT-001) ────────────────────────────────────
+
+      - name: "OGB-W9-15T-THP-PIT-001"
+        register: 7229
+        device_type: "pressure"
+        omf_container_id: "OGB-W9-15T-THP-PIT-001"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W9-15T-THP-PIT-001_BATT"
+        register: 7230
+        device_type: "battery"
+        omf_container_id: "OGB-W9-15T-THP-PIT-001_BATT"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W9-15T-THP-PIT-001_RSSI"
+        register: 7231
+        device_type: "rssi"
+        omf_container_id: "OGB-W9-15T-THP-PIT-001_RSSI"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      # ── Flowline Pressure (FLP-PIT-002) ────────────────────────────────────
+
+      - name: "OGB-W9-15T-FLP-PIT-002"
+        register: 7232
+        device_type: "pressure"
+        omf_container_id: "OGB-W9-15T-FLP-PIT-002"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W9-15T-FLP-PIT-002_BATT"
+        register: 7233
+        device_type: "battery"
+        omf_container_id: "OGB-W9-15T-FLP-PIT-002_BATT"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W9-15T-FLP-PIT-002_RSSI"
+        register: 7234
+        device_type: "rssi"
+        omf_container_id: "OGB-W9-15T-FLP-PIT-002_RSSI"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      # ── Casing Pressure (CHP-PIT-003) ───────────────────────────────────────
+
+      - name: "OGB-W9-15CHP-PIT-003"
+        register: 7235
+        device_type: "pressure"
+        omf_container_id: "OGB-W9-15CHP-PIT-003"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W9-15CHP-PIT-003_BATT"
+        register: 7236
+        device_type: "battery"
+        omf_container_id: "OGB-W9-15CHP-PIT-003_BATT"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W9-15CHP-PIT-003_RSSI"
+        register: 7237
+        device_type: "rssi"
+        omf_container_id: "OGB-W9-15CHP-PIT-003_RSSI"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      # ── Flowline Temperature (FLT-TIT-002) ─────────────────────────────────
+
+      - name: "OGB-W9-15T-FLT-TIT-002"
+        register: 7238
+        device_type: "temperature"
+        omf_container_id: "OGB-W9-15T-FLT-TIT-002"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W9-15T-FLT-TIT-002_BATT"
+        register: 7239
+        device_type: "battery"
+        omf_container_id: "OGB-W9-15T-FLT-TIT-002_BATT"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+      - name: "OGB-W9-15T-FLT-TIT-002_RSSI"
+        register: 7240
+        device_type: "rssi"
+        omf_container_id: "OGB-W9-15T-FLT-TIT-002_RSSI"
+        pi_web_id: "REPLACE_PI_WEB_ID"
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# TAGS WITH NO REGISTER IN SOURCE DOCUMENT — do NOT activate until confirmed
+# Coordinate with the field instrumentation / SCADA team for register addresses.
+#
+# Wellhead Temperature (WHT-TIT-001) — all except OGB-W1-7S:
+#   GW1: OGB-W1-1S, OGB-W1-1L, OGB-W1-7L, OGB-W1-10T, OGB-W1-11T,
+#        OGB-W1-12S, OGB-W1-12L, OGB-W1-13T, OGB-W1-16S, OGB-W1-16L
+#   GW2: OGB-W3-3S, OGB-W3-4T, OGB-W3-5S, OGB-W3-5L,
+#        OGB-W6-8S, OGB-W6-8L, OGB-W9-9S, OGB-W9-9L,
+#        OGB-W9-14S, OGB-W9-14L, OGB-W9-15T
+#
+# Flowline Temperature — no register documented:
+#   GW1: OGB-W1-1S-FLT-TIT-002
+#   GW2: OGB-W3-4T-FLT-TIT-002
+#
+# Downstream Manifold Temperature — no register documented:
+#   GW2: OGB-GP-IM-4T-TIT-001, OGB-FS-IM-5S-TIT-001,
+#        OGB-FS-IM-5L-TIT-001, OGB-GP-IM-9L-TIT-001
+#
+# Vessel Temperature — no register documented:
+#   GW2: OGB-FS-V5000-TIT-001
+#
+# REGISTER CONFLICT — verify with field team:
+#   GW2 register 7189 is listed for BOTH:
+#     OGB-W9-9CHP-PIT-003  (Casing Pressure)
+#     OGB-W9-9L-FLT-TIT-002 (Flowline Temperature)
+#   One of these is likely a typo in the source document.
+# ─────────────────────────────────────────────────────────────────────────────

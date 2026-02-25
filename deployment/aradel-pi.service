@@ -1,0 +1,15 @@
+[Unit]
+Description=Aradel IoT to PI System Service
+After=network-online.target
+
+[Service]
+Type=simple
+User=piadmin
+WorkingDirectory=/opt/aradel-pi
+ExecStart=/opt/aradel-pi/aradel-pi
+Restart=always
+RestartSec=10
+LimitNOFILE=4096
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,575 @@
+system:
+  log_level: info
+pi_server:
+  base_url: https://10.70.65.53
+  username: NGDELTA\samuelkehinde
+  password: Pi3vivASpt!
+  insecure_tls: true
+alerts:
+  enabled: true
+  webhook_url: https://hooks.slack.com/services/YOUR/WEBHOOK/URL
+gateways:
+- name: Gateway_1
+  address: 41.206.30.202:502
+  slave_id: 1
+  poll_interval: 10s
+  tags:
+  - name: OGB-W1-1L-THP-PIT-001
+    register: 7001
+    device_type: pressure
+    omf_container_id: OGB-W1-1L-THP-PIT-001
+    pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5QqwQAAAUElEQVRBQVxPR0ItVzEtMUwtVEhQLVBJVC0wMDE
+  - name: OGB-W1-1S-THP-PIT-001
+    register: 7010
+    device_type: pressure
+    omf_container_id: OGB-W1-1S-THP-PIT-001
+    pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5QrAQAAAUElEQVRBQVxPR0ItVzEtMVMtVEhQLVBJVC0wMDE
+  - name: OGB-W1-7L-THP-PIT-001
+    register: 7020
+    device_type: pressure
+    omf_container_id: OGB-W1-7L-THP-PIT-001
+    pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5QrQQAAAUElEQVRBQVxPR0ItVzEtN0wtVEhQLVBJVC0wMDE
+  - name: OGB-W1-7S-THP-PIT-001
+    register: 7029
+    device_type: pressure
+    omf_container_id: OGB-W1-7S-THP-PIT-001
+    pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5QrgQAAAUElEQVRBQVxPR0ItVzEtN1MtVEhQLVBJVC0wMDE
+  - name: OGB-W1-10T-THP-PIT-001
+    register: 7047
+    device_type: pressure
+    omf_container_id: OGB-W1-10T-THP-PIT-001
+    pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5QGwQAAAUElEQVRBQVxPR0ItVzEtMTBULVRIUC1QSVQtMDAx
+  - name: OGB-W1-11T-THP-PIT-001
+    register: 7060
+    device_type: pressure
+    omf_container_id: OGB-W1-11T-THP-PIT-001
+    pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5QrwQAAAUElEQVRBQVxPR0ItVzEtMTFULVRIUC1QSVQtMDAx
+  - name: OGB-W1-12L-THP-PIT-001
+    register: 7073
+    device_type: pressure
+    omf_container_id: OGB-W1-12L-THP-PIT-001
+    pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5QsAQAAAUElEQVRBQVxPR0ItVzEtMTJMLVRIUC1QSVQtMDAx
+  - name: OGB-W1-12S-THP-PIT-001
+    register: 7082
+    device_type: pressure
+    omf_container_id: OGB-W1-12S-THP-PIT-001
+    pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5QsQQAAAUElEQVRBQVxPR0ItVzEtMTJTLVRIUC1QSVQtMDAx
+  - name: OGB-W1-13T-THP-PIT-001
+    register: 7096
+    device_type: pressure
+    omf_container_id: OGB-W1-13T-THP-PIT-001
+    pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5QsgQAAAUElEQVRBQVxPR0ItVzEtMTNULVRIUC1QSVQtMDAx
+  - name: OGB-W1-16L-THP-PIT-001
+    register: 7109
+    device_type: pressure
+    omf_container_id: OGB-W1-16L-THP-PIT-001
+    pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5QswQAAAUElEQVRBQVxPR0ItVzEtMTZMLVRIUC1QSVQtMDAx
+  - name: OGB-W1-16S-THP-PIT-001
+    register: 7118
+    device_type: pressure
+    omf_container_id: OGB-W1-16S-THP-PIT-001
+    pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5QtAQAAAUElEQVRBQVxPR0ItVzEtMTZTLVRIUC1QSVQtMDAx
+
+
+
+  - name: OGB-W1-1L-FLP-PIT-002
+    register: 7004
+    device_type: pressure
+    omf_container_id: OGB-W1-1L-FLP-PIT-002
+    pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5QtQQAAAUElEQVRBQVxPR0ItVzEtMUwtRkxQLVBJVC0wMDI
+  - name: OGB-W1-1S-FLP-PIT-002
+    register: 7013
+    device_type: pressure
+    omf_container_id: OGB-W1-1S-FLP-PIT-002
+    pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5QtgQAAAUElEQVRBQVxPR0ItVzEtMVMtRkxQLVBJVC0wMDI
+  - name: OGB-W1-7L-FLP-PIT-002
+    register: 7023
+    device_type: pressure
+    omf_container_id: OGB-W1-7L-FLP-PIT-002
+    pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5QtwQAAAUElEQVRBQVxPR0ItVzEtN0wtRkxQLVBJVC0wMDI
+  - name: OGB-W1-7S-FLP-PIT-002
+    register: 7032
+    device_type: pressure
+    omf_container_id: OGB-W1-7S-FLP-PIT-002
+    pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5QuAQAAAUElEQVRBQVxPR0ItVzEtN1MtRkxQLVBJVC0wMDI
+  - name: OGB-W1-10T-FLP-PIT-002
+    register: 7053
+    device_type: pressure
+    omf_container_id: OGB-W1-10T-FLP-PIT-002
+    pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5QuQQAAAUElEQVRBQVxPR0ItVzEtMTBULUZMUC1QSVQtMDAy
+  - name: OGB-W1-11T-FLP-PIT-002
+    register: 7066
+    device_type: pressure
+    omf_container_id: OGB-W1-11T-FLP-PIT-002
+    pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5QugQAAAUElEQVRBQVxPR0ItVzEtMTFULUZMUC1QSVQtMDAy
+  - name: OGB-W1-12L-FLP-PIT-002
+    register: 7076
+    device_type: pressure
+    omf_container_id: OGB-W1-12L-FLP-PIT-002
+    pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5QuwQAAAUElEQVRBQVxPR0ItVzEtMTJMLUZMUC1QSVQtMDAy
+  - name: OGB-W1-12S-FLP-PIT-002
+    register: 7085
+    device_type: pressure
+    omf_container_id: OGB-W1-12S-FLP-PIT-002
+    pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5QvAQAAAUElEQVRBQVxPR0ItVzEtMTJTLUZMUC1QSVQtMDAy
+  - name: OGB-W1-13T-FLP-PIT-002
+    register: 7102
+    device_type: pressure
+    omf_container_id: OGB-W1-13T-FLP-PIT-002
+    pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5QvQQAAAUElEQVRBQVxPR0ItVzEtMTNULUZMUC1QSVQtMDAy
+  - name: OGB-W1-16L-FLP-PIT-002
+    register: 7112
+    device_type: pressure
+    omf_container_id: OGB-W1-16L-FLP-PIT-002
+    pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5QvgQAAAUElEQVRBQVxPR0ItVzEtMTZMLUZMUC1QSVQtMDAy
+  - name: OGB-W1-16S-FLP-PIT-002
+    register: 7121
+    device_type: pressure
+    omf_container_id: OGB-W1-16S-FLP-PIT-002
+    pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5QvwQAAAUElEQVRBQVxPR0ItVzEtMTZTLUZMUC1QSVQtMDAy
+
+
+
+  - name: OGB-W1-1CHP-PIT-003
+    register: 7007
+    device_type: pressure
+    omf_container_id: OGB-W1-1CHP-PIT-003
+    pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5QwAQAAAUElEQVRBQVxPR0ItVzEtMUNIUC1QSVQtMDAz
+  - name: OGB-W1-7CHP-PIT-003
+    register: 7026
+    device_type: pressure
+    omf_container_id: OGB-W1-7CHP-PIT-003
+    pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5QwQQAAAUElEQVRBQVxPR0ItVzEtN0NIUC1QSVQtMDAz
+  - name: OGB-W1-10CHP-PIT-003
+    register: 7050
+    device_type: pressure
+    omf_container_id: OGB-W1-10CHP-PIT-003
+    pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5QwgQAAAUElEQVRBQVxPR0ItVzEtMTBDSFAtUElULTAwMw
+  - name: OGB-W1-11CHP-PIT-003
+    register: 7063
+    device_type: pressure
+    omf_container_id: OGB-W1-11CHP-PIT-003
+    pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5QwwQAAAUElEQVRBQVxPR0ItVzEtMTFDSFAtUElULTAwMw
+  - name: OGB-W1-12CHP-PIT-003
+    register: 7079
+    device_type: pressure
+    omf_container_id: OGB-W1-12CHP-PIT-003
+    pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5QxAQAAAUElEQVRBQVxPR0ItVzEtMTJDSFAtUElULTAwMw
+  - name: OGB-W1-13CHP-PIT-003
+    register: 7099
+    device_type: pressure
+    omf_container_id: OGB-W1-13CHP-PIT-003
+    pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5QxQQAAAUElEQVRBQVxPR0ItVzEtMTNDSFAtUElULTAwMw
+  - name: OGB-W1-16CHP-PIT-003
+    register: 7115
+    device_type: pressure
+    omf_container_id: OGB-W1-16CHP-PIT-003
+    pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5QxgQAAAUElEQVRBQVxPR0ItVzEtMTZDSFAtUElULTAwMw
+
+
+  - name: OGB-W1-1L-FLT-TIT-002
+    register: 7016
+    device_type: temperature
+    omf_container_id: OGB-W1-1L-FLT-TIT-002
+    pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5QxwQAAAUElEQVRBQVxPR0ItVzEtMUwtRkxULVRJVC0wMDI
+  - name: OGB-W1-7L-FLT-TIT-002
+    register: 7035
+    device_type: temperature
+    omf_container_id: OGB-W1-7L-FLT-TIT-002
+    pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5QyAQAAAUElEQVRBQVxPR0ItVzEtN0wtRkxULVRJVC0wMDI
+  - name: OGB-W1-7S-FLT-TIT-002
+    register: 7043
+    device_type: temperature
+    omf_container_id: OGB-W1-7S-FLT-TIT-002
+    pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5QyQQAAAUElEQVRBQVxPR0ItVzEtN1MtRkxULVRJVC0wMDI
+  - name: OGB-W1-10T-FLT-TIT-002
+    register: 7056
+    device_type: temperature
+    omf_container_id: OGB-W1-10T-FLT-TIT-002
+    pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5QygQAAAUElEQVRBQVxPR0ItVzEtMTBULUZMVC1USVQtMDAy
+  - name: OGB-W1-11T-FLT-TIT-002
+    register: 7069
+    device_type: temperature
+    omf_container_id: OGB-W1-11T-FLT-TIT-002
+    pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5QywQAAAUElEQVRBQVxPR0ItVzEtMTFULUZMVC1USVQtMDAy
+  - name: OGB-W1-12L-FLT-TIT-002
+    register: 7088
+    device_type: temperature
+    omf_container_id: OGB-W1-12L-FLT-TIT-002
+    pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5QzAQAAAUElEQVRBQVxPR0ItVzEtMTJMLUZMVC1USVQtMDAy
+  - name: OGB-W1-12S-FLT-TIT-002
+    register: 7092
+    device_type: temperature
+    omf_container_id: OGB-W1-12S-FLT-TIT-002
+    pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5QzQQAAAUElEQVRBQVxPR0ItVzEtMTJTLUZMVC1USVQtMDAy
+  - name: OGB-W1-13T-FLT-TIT-002
+    register: 7105
+    device_type: temperature
+    omf_container_id: OGB-W1-13T-FLT-TIT-002
+    pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5QzgQAAAUElEQVRBQVxPR0ItVzEtMTNULUZMVC1USVQtMDAy
+  - name: OGB-W1-16L-FLT-TIT-002
+    register: 7124
+    device_type: temperature
+    omf_container_id: OGB-W1-16L-FLT-TIT-002
+    pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5QzwQAAAUElEQVRBQVxPR0ItVzEtMTZMLUZMVC1USVQtMDAy
+  - name: OGB-W1-16S-FLT-TIT-002
+    register: 7128
+    device_type: temperature
+    omf_container_id: OGB-W1-16S-FLT-TIT-002
+    pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5Q0AQAAAUElEQVRBQVxPR0ItVzEtMTZTLUZMVC1USVQtMDAy
+  - name: OGB-W1-7S-WHT-TIT-001
+    register: 7039
+    device_type: temperature
+    omf_container_id: OGB-W1-7S-WHT-TIT-001
+    pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5Q0QQAAAUElEQVRBQVxPR0ItVzEtN1MtV0hULVRJVC0wMDE
+
+
+- name: Gateway_2
+  address: 105.114.21.18:502
+  slave_id: 1
+  poll_interval: 10s
+  tags:
+  - name: OGB-FS-IM-3S-TIT-001
+    register: 7005
+    device_type: temperature
+    omf_container_id: OGB-FS-IM-3S-TIT-001
+    pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5Q0gQAAAUElEQVRBQVxPR0ItRlMtSU0tM1MtVElULTAwMQ
+  - name: OGB-W6-8L-THP-PIT-001
+    register: 7009
+    device_type: pressure
+    omf_container_id: OGB-W6-8L-THP-PIT-001
+    pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5Q0wQAAAUElEQVRBQVxPR0ItVzYtOEwtVEhQLVBJVC0wMDE
+  - name: OGB-W6-8L-FLP-PIT-002
+    register: 7012
+    device_type: pressure
+    omf_container_id: OGB-W6-8L-FLP-PIT-002
+    pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5Q1AQAAAUElEQVRBQVxPR0ItVzYtOEwtRkxQLVBJVC0wMDI
+  - name: OGB-W6-8CHP-PIT-003
+    register: 7015
+    device_type: pressure
+    omf_container_id: OGB-W6-8CHP-PIT-003
+    pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5Q1QQAAAUElEQVRBQVxPR0ItVzYtOENIUC1QSVQtMDAz
+  - name: OGB-W6-8S-THP-PIT-001
+    register: 7022
+    device_type: pressure
+    omf_container_id: OGB-W6-8S-THP-PIT-001
+    pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5Q1gQAAAUElEQVRBQVxPR0ItVzYtOFMtVEhQLVBJVC0wMDE
+  - name: OGB-W6-8S-FLP-PIT-002
+    register: 7025
+    device_type: pressure
+    omf_container_id: OGB-W6-8S-FLP-PIT-002
+    pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5Q1wQAAAUElEQVRBQVxPR0ItVzYtOFMtRkxQLVBJVC0wMDI
+  - name: OGB-W6-8L-FLT-TIT-002
+    register: 7028
+    device_type: temperature
+    omf_container_id: OGB-W6-8L-FLT-TIT-002
+    pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5Q2AQAAAUElEQVRBQVxPR0ItVzYtOEwtRkxULVRJVC0wMDI
+  - name: OGB-GP-IM-8L-TIT-001
+    register: 7030
+    device_type: temperature
+    omf_container_id: OGB-GP-IM-8L-TIT-001
+    pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5Q2QQAAAUElEQVRBQVxPR0ItR1AtSU0tOEwtVElULTAwMQ
+  - name: OGB-W6-8S-FLT-TIT-002
+    register: 7036
+    device_type: temperature
+    omf_container_id: OGB-W6-8S-FLT-TIT-002
+    pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5Q2gQAAAUElEQVRBQVxPR0ItVzYtOFMtRkxULVRJVC0wMDI
+  - name: OGB-GP-IM-8S-TIT-001
+    register: 7040
+    device_type: temperature
+    omf_container_id: OGB-GP-IM-8S-TIT-001
+    pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5Q2wQAAAUElEQVRBQVxPR0ItR1AtSU0tOFMtVElULTAwMQ
+  - name: OGB-FS-V101-PIT-001
+    register: 7043
+    device_type: pressure
+    omf_container_id: OGB-FS-V101-PIT-001
+    pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5Q3AQAAAUElEQVRBQVxPR0ItRlMtVjEwMS1QSVQtMDAx
+  - name: OGB-FS-V102-PIT-001
+    register: 7047
+    device_type: pressure
+    omf_container_id: OGB-FS-V102-PIT-001
+    pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5Q3QQAAAUElEQVRBQVxPR0ItRlMtVjEwMi1QSVQtMDAx
+  - name: OGB-FS-V103-PIT-001
+    register: 7050
+    device_type: pressure
+    omf_container_id: OGB-FS-V103-PIT-001
+    pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5Q3gQAAAUElEQVRBQVxPR0ItRlMtVjEwMy1QSVQtMDAx
+  - name: OGB-FS-V111-PIT-001
+    register: 7053
+    device_type: pressure
+    omf_container_id: OGB-FS-V111-PIT-001
+    pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5Q3wQAAAUElEQVRBQVxPR0ItRlMtVjExMS1QSVQtMDAx
+  - name: OGB-FS-V5001-PIT-001
+    register: 7056
+    device_type: pressure
+    omf_container_id: OGB-FS-V5001-PIT-001
+    pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5Q4AQAAAUElEQVRBQVxPR0ItRlMtVjUwMDEtUElULTAwMQ
+  - name: OGB-FS-V5000-PIT-001
+    register: 7059
+    device_type: pressure
+    omf_container_id: OGB-FS-V5000-PIT-001
+    pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5Q4QQAAAUElEQVRBQVxPR0ItRlMtVjUwMDAtUElULTAwMQ
+  - name: OGB-FS-V101-TIT-001
+    register: 7062
+    device_type: temperature
+    omf_container_id: OGB-FS-V101-TIT-001
+    pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5Q4gQAAAUElEQVRBQVxPR0ItRlMtVjEwMS1USVQtMDAx
+  - name: OGB-FS-V103-TIT-001
+    register: 7066
+    device_type: temperature
+    omf_container_id: OGB-FS-V103-TIT-001
+    pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5Q4wQAAAUElEQVRBQVxPR0ItRlMtVjEwMy1USVQtMDAx
+  - name: OGB-FS-V102-TIT-001
+    register: 7070
+    device_type: temperature
+    omf_container_id: OGB-FS-V102-TIT-001
+    pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5Q5AQAAAUElEQVRBQVxPR0ItRlMtVjEwMi1USVQtMDAx
+  - name: OGB-FS-V111-TIT-001
+    register: 7074
+    device_type: temperature
+    omf_container_id: OGB-FS-V111-TIT-001
+    pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5Q5QQAAAUElEQVRBQVxPR0ItRlMtVjExMS1USVQtMDAx
+  - name: OGB-FS-V5001-TIT-001
+    register: 7078
+    device_type: temperature
+    omf_container_id: OGB-FS-V5001-TIT-001
+    pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5Q5gQAAAUElEQVRBQVxPR0ItRlMtVjUwMDEtVElULTAwMQ
+
+
+
+
+
+  - name: OGB-GP-IM-1L-TIT-001
+    register: 7082
+    device_type: temperature
+    omf_container_id: OGB-GP-IM-1L-TIT-001
+    pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5Q5wQAAAUElEQVRBQVxPR0ItR1AtSU0tMUwtVElULTAwMQ
+  - name: OGB-GP-IM-7L-TIT-001
+    register: 7086
+    device_type: temperature
+    omf_container_id: OGB-GP-IM-7L-TIT-001
+    pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5Q6AQAAAUElEQVRBQVxPR0ItR1AtSU0tN0wtVElULTAwMQ
+  - name: OGB-FS-IM-7S-TIT-001
+    register: 7090
+    device_type: temperature
+    omf_container_id: OGB-FS-IM-7S-TIT-001
+    pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5Q6QQAAAUElEQVRBQVxPR0ItRlMtSU0tN1MtVElULTAwMQ
+  - name: OGB-FS-IM-9S-TIT-001
+    register: 7094
+    device_type: temperature
+    omf_container_id: OGB-FS-IM-9S-TIT-001
+    pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5Q6gQAAAUElEQVRBQVxPR0ItRlMtSU0tOVMtVElULTAwMQ
+  - name: OGB-FS-IM-10T-TIT-001
+    register: 7098
+    device_type: temperature
+    omf_container_id: OGB-FS-IM-10T-TIT-001
+    pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5Q6wQAAAUElEQVRBQVxPR0ItRlMtSU0tMTBULVRJVC0wMDE
+  - name: OGB-FS-IM-11T-TIT-001
+    register: 7102
+    device_type: temperature
+    omf_container_id: OGB-FS-IM-11T-TIT-001
+    pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5Q7AQAAAUElEQVRBQVxPR0ItRlMtSU0tMTFULVRJVC0wMDE
+  - name: OGB-FS-IM-13T-TIT-001
+    register: 7106
+    device_type: temperature
+    omf_container_id: OGB-FS-IM-13T-TIT-001
+    pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5Q7QQAAAUElEQVRBQVxPR0ItRlMtSU0tMTNULVRJVC0wMDE
+  - name: OGB-GP-IM-12L-TIT-001
+    register: 7110
+    device_type: temperature
+    omf_container_id: OGB-GP-IM-12L-TIT-001
+    pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5Q7gQAAAUElEQVRBQVxPR0ItR1AtSU0tMTJMLVRJVC0wMDE
+  - name: OGB-GP-IM-12S-TIT-001
+    register: 7114
+    device_type: temperature
+    omf_container_id: OGB-GP-IM-12S-TIT-001
+    pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5Q7wQAAAUElEQVRBQVxPR0ItR1AtSU0tMTJTLVRJVC0wMDE
+  - name: OGB-GP-IM-16L-TIT-001
+    register: 7118
+    device_type: temperature
+    omf_container_id: OGB-GP-IM-16L-TIT-001
+    pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5Q8AQAAAUElEQVRBQVxPR0ItR1AtSU0tMTZMLVRJVC0wMDE
+  - name: OGB-GP-IM-16S-TIT-001
+    register: 7122
+    device_type: temperature
+    omf_container_id: OGB-GP-IM-16S-TIT-001
+    pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5Q8QQAAAUElEQVRBQVxPR0ItR1AtSU0tMTZTLVRJVC0wMDE
+  - name: OGB-FS-IM-15T-TIT-001
+    register: 7126
+    device_type: temperature
+    omf_container_id: OGB-FS-IM-15T-TIT-001
+    pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5Q8gQAAAUElEQVRBQVxPR0ItRlMtSU0tMTVULVRJVC0wMDE
+  - name: OGB-FS-IM-14L-TIT-001
+    register: 7130
+    device_type: temperature
+    omf_container_id: OGB-FS-IM-14L-TIT-001
+    pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5Q8wQAAAUElEQVRBQVxPR0ItRlMtSU0tMTRMLVRJVC0wMDE
+  - name: OGB-FS-IM-14S-TIT-001
+    register: 7134
+    device_type: temperature
+    omf_container_id: OGB-FS-IM-14S-TIT-001
+    pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5Q9AQAAAUElEQVRBQVxPR0ItRlMtSU0tMTRTLVRJVC0wMDE
+
+
+
+    
+  - name: OGB-W3-3S-THP-PIT-001
+    register: 7138
+    device_type: pressure
+    omf_container_id: OGB-W3-3S-THP-PIT-001
+    pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5Q9QQAAAUElEQVRBQVxPR0ItVzMtM1MtVEhQLVBJVC0wMDE
+  - name: OGB-W3-3S-FLP-PIT-002
+    register: 7141
+    device_type: pressure
+    omf_container_id: OGB-W3-3S-FLP-PIT-002
+    pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5Q9gQAAAUElEQVRBQVxPR0ItVzMtM1MtRkxQLVBJVC0wMDI
+  - name: OGB-W3-3CHP-PIT-003
+    register: 7144
+    device_type: pressure
+    omf_container_id: OGB-W3-3CHP-PIT-003
+    pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5Q9wQAAAUElEQVRBQVxPR0ItVzMtM0NIUC1QSVQtMDAz
+  - name: OGB-W3-3S-FLT-TIT-002
+    register: 7147
+    device_type: temperature
+    omf_container_id: OGB-W3-3S-FLT-TIT-002
+    pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5Q-AQAAAUElEQVRBQVxPR0ItVzMtM1MtRkxULVRJVC0wMDI
+  - name: OGB-W3-4T-THP-PIT-001
+    register: 7151
+    device_type: pressure
+    omf_container_id: OGB-W3-4T-THP-PIT-001
+    pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5Q-QQAAAUElEQVRBQVxPR0ItVzMtNFQtVEhQLVBJVC0wMDE
+  - name: OGB-W3-4T-FLP-PIT-002
+    register: 7154
+    device_type: pressure
+    omf_container_id: OGB-W3-4T-FLP-PIT-002
+    pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5Q-gQAAAUElEQVRBQVxPR0ItVzMtNFQtRkxQLVBJVC0wMDI
+  - name: OGB-W3-4CHP-PIT-003
+    register: 7157
+    device_type: pressure
+    omf_container_id: OGB-W3-4CHP-PIT-003
+    pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5Q-wQAAAUElEQVRBQVxPR0ItVzMtNENIUC1QSVQtMDAz
+  - name: OGB-W3-5L-THP-PIT-001
+    register: 7160
+    device_type: pressure
+    omf_container_id: OGB-W3-5L-THP-PIT-001
+    pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5Q_AQAAAUElEQVRBQVxPR0ItVzMtNUwtVEhQLVBJVC0wMDE
+  - name: OGB-W3-5L-FLP-PIT-002
+    register: 7163
+    device_type: pressure
+    omf_container_id: OGB-W3-5L-FLP-PIT-002
+    pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5Q_QQAAAUElEQVRBQVxPR0ItVzMtNUwtRkxQLVBJVC0wMDI
+  - name: OGB-W3-5CHP-PIT-003
+    register: 7166
+    device_type: pressure
+    omf_container_id: OGB-W3-5CHP-PIT-003
+    pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5Q_gQAAAUElEQVRBQVxPR0ItVzMtNUNIUC1QSVQtMDAz
+  - name: OGB-W3-5S-THP-PIT-001
+    register: 7169
+    device_type: pressure
+    omf_container_id: OGB-W3-5S-THP-PIT-001
+    pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5Q_wQAAAUElEQVRBQVxPR0ItVzMtNVMtVEhQLVBJVC0wMDE
+  - name: OGB-W3-5S-FLP-PIT-002
+    register: 7172
+    device_type: pressure
+    omf_container_id: OGB-W3-5S-FLP-PIT-002
+    pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5QAAUAAAUElEQVRBQVxPR0ItVzMtNVMtRkxQLVBJVC0wMDI
+  - name: OGB-W3-5L-FLT-TIT-002
+    register: 7175
+    device_type: temperature
+    omf_container_id: OGB-W3-5L-FLT-TIT-002
+    pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5QAQUAAAUElEQVRBQVxPR0ItVzMtNUwtRkxULVRJVC0wMDI
+  - name: OGB-W3-5S-FLT-TIT-002
+    register: 7179
+    device_type: temperature
+    omf_container_id: OGB-W3-5S-FLT-TIT-002
+    pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5QAgUAAAUElEQVRBQVxPR0ItVzMtNVMtRkxULVRJVC0wMDI
+  - name: OGB-W9-9L-THP-PIT-001
+    register: 7183
+    device_type: pressure
+    omf_container_id: OGB-W9-9L-THP-PIT-001
+    pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5QAwUAAAUElEQVRBQVxPR0ItVzktOUwtVEhQLVBJVC0wMDE
+  - name: OGB-W9-9L-FLP-PIT-002
+    register: 7186
+    device_type: pressure
+    omf_container_id: OGB-W9-9L-FLP-PIT-002
+    pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5QBAUAAAUElEQVRBQVxPR0ItVzktOUwtRkxQLVBJVC0wMDI
+  - name: OGB-W9-9CHP-PIT-003
+    register: 7189
+    device_type: pressure
+    omf_container_id: OGB-W9-9CHP-PIT-003
+    pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5QBQUAAAUElEQVRBQVxPR0ItVzktOUNIUC1QSVQtMDAz
+  - name: OGB-W9-9S-THP-PIT-001
+    register: 7192
+    device_type: pressure
+    omf_container_id: OGB-W9-9S-THP-PIT-001
+    pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5QBgUAAAUElEQVRBQVxPR0ItVzktOVMtVEhQLVBJVC0wMDE
+  - name: OGB-W9-9S-FLP-PIT-002
+    register: 7195
+    device_type: pressure
+    omf_container_id: OGB-W9-9S-FLP-PIT-002
+    pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5QBwUAAAUElEQVRBQVxPR0ItVzktOVMtRkxQLVBJVC0wMDI
+  - name: OGB-W9-9L-FLT-TIT-002
+    register: 7189
+    device_type: temperature
+    omf_container_id: OGB-W9-9L-FLT-TIT-002
+    pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5QCAUAAAUElEQVRBQVxPR0ItVzktOUwtRkxULVRJVC0wMDI
+  - name: OGB-W9-9S-FLT-TIT-002
+    register: 7202
+    device_type: temperature
+    omf_container_id: OGB-W9-9S-FLT-TIT-002
+    pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5QCQUAAAUElEQVRBQVxPR0ItVzktOVMtRkxULVRJVC0wMDI
+  - name: OGB-W9-14L-THP-PIT-001
+    register: 7206
+    device_type: pressure
+    omf_container_id: OGB-W9-14L-THP-PIT-001
+    pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5QCgUAAAUElEQVRBQVxPR0ItVzktMTRMLVRIUC1QSVQtMDAx
+  - name: OGB-W9-14L-FLP-PIT-002
+    register: 7209
+    device_type: pressure
+    omf_container_id: OGB-W9-14L-FLP-PIT-002
+    pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5QCwUAAAUElEQVRBQVxPR0ItVzktMTRMLUZMUC1QSVQtMDAy
+  - name: OGB-W9-14CHP-PIT-003
+    register: 7212
+    device_type: pressure
+    omf_container_id: OGB-W9-14CHP-PIT-003
+    pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5QDAUAAAUElEQVRBQVxPR0ItVzktMTRDSFAtUElULTAwMw
+  - name: OGB-W9-14S-THP-PIT-001
+    register: 7215
+    device_type: pressure
+    omf_container_id: OGB-W9-14S-THP-PIT-001
+    pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5QDQUAAAUElEQVRBQVxPR0ItVzktMTRTLVRIUC1QSVQtMDAx
+  - name: OGB-W9-14S-FLP-PIT-002
+    register: 7218
+    device_type: pressure
+    omf_container_id: OGB-W9-14S-FLP-PIT-002
+    pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5QDgUAAAUElEQVRBQVxPR0ItVzktMTRTLUZMUC1QSVQtMDAy
+  - name: OGB-W9-14L-FLT-TIT-002
+    register: 7221
+    device_type: temperature
+    omf_container_id: OGB-W9-14L-FLT-TIT-002
+    pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5QDwUAAAUElEQVRBQVxPR0ItVzktMTRMLUZMVC1USVQtMDAy
+  - name: OGB-W9-14S-FLT-TIT-002
+    register: 7225
+    device_type: temperature
+    omf_container_id: OGB-W9-14S-FLT-TIT-002
+    pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5QEAUAAAUElEQVRBQVxPR0ItVzktMTRTLUZMVC1USVQtMDAy
+  - name: OGB-W9-15T-THP-PIT-001
+    register: 7229
+    device_type: pressure
+    omf_container_id: OGB-W9-15T-THP-PIT-001
+    pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5QEQUAAAUElEQVRBQVxPR0ItVzktMTVULVRIUC1QSVQtMDAx
+  - name: OGB-W9-15T-FLP-PIT-002
+    register: 7232
+    device_type: pressure
+    omf_container_id: OGB-W9-15T-FLP-PIT-002
+    pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5QEgUAAAUElEQVRBQVxPR0ItVzktMTVULUZMUC1QSVQtMDAy
+  - name: OGB-W9-15CHP-PIT-003
+    register: 7235
+    device_type: pressure
+    omf_container_id: OGB-W9-15CHP-PIT-003
+    pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5QEwUAAAUElEQVRBQVxPR0ItVzktMTVDSFAtUElULTAwMw
+  - name: OGB-W9-15T-FLT-TIT-002
+    register: 7238
+    device_type: temperature
+    omf_container_id: OGB-W9-15T-FLT-TIT-002
+    pi_web_id: F1DP8-YT12cQNUGCaVzSmQUb5QFAUAAAUElEQVRBQVxPR0ItVzktMTVULUZMVC1USVQtMDAy
