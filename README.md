@@ -43,8 +43,8 @@
 2. Build the binary:
    ```bash
    go build -o modbus-connector ./cmd/main.go
-   CGO_ENABLED=0 GOOS=windows GOARCH=amd64 \
-go build -ldflags="-s -w" -o aradel-pi.exe cmd/main.go
+CGO_ENABLED=0 GOOS=windows GOARCH=amd64 \
+go build -ldflags="-s -w" -o build/aradel-pi.exe cmd/main.go
 
 GOOS=windows GOARCH=amd64 go build -o aradel-pi.exe cmd/main.go
    ```

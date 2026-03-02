@@ -49,9 +49,9 @@ func (p *Publisher) processOMFGateway(ctx context.Context, gateway config.Gatewa
             p.OMFClient.PIServer.Username,
             p.OMFClient.PIServer.Password,
         )
-		if p.Debug {
-			p.Logger.Info("✅ Modbus pool ready", zap.String("gateway", gateway.Address))
-		}
+
+		p.Logger.Info("✅ Modbus pool ready", zap.String("gateway", gateway.Address))
+		
 
         err = p.readTagsLoop(ctx, pool, gateway, omfClient, nil, metrics)
         if err != nil {
@@ -80,7 +80,9 @@ func (p *Publisher) processPiWebAPIGateway(
     delay := backoffBase
 
     if !p.Debug{
+        print("\nAddress: ", gateway.Address)
         gateway.Address = gateway.LocalAddress
+        print("\nUpdated Address: ", gateway.Address)
     }
 
     for {
@@ -110,9 +112,9 @@ func (p *Publisher) processPiWebAPIGateway(
             p.PiWebClient.PIServer.Username,
             p.PiWebClient.PIServer.Password,
         )
-		if p.Debug {
-			p.Logger.Info("✅ Modbus pool ready", zap.String("gateway", gateway.Address))
-		}
+
+		p.Logger.Info("✅ Modbus pool ready", zap.String("gateway", gateway.Address))
+		
 
         err = p.readTagsLoop(ctx, pool, gateway, nil, piWebService, metrics)
         if err != nil {

@@ -21,7 +21,7 @@ gateways:
   # ═══════════════════════════════════════════════════════════════════════════
   - name: "Gateway_1"
     address: "41.206.30.202:502"
-    locaLAddress: "10.55.65.81"
+    localAddress: "10.55.65.81:502"
     slave_id: 1
     poll_interval: "10s"
     tags:
@@ -260,7 +260,7 @@ gateways:
   # ═══════════════════════════════════════════════════════════════════════════
   - name: "Gateway_2"
     address: "105.114.21.18:502"
-    locaLAddress: "10.55.65.82"
+    localAddress: "10.55.65.82:502"
     slave_id: 2
     poll_interval: "600s"
     tags:
