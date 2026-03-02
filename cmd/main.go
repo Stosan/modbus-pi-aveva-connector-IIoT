@@ -36,7 +36,7 @@ func main() {
 	piWebPublisher := domain.Publisher{
 		PiWebClient: cfg,
 		Logger:      logger,
-		Debug:       false,
+		Debug:       true,
 	}
 	// Block here until all gateway goroutines exit cleanly
 	piWebPublisher.StartPiWebAPIPublisher(ctx)

@@ -259,8 +259,8 @@ gateways:
   # ═══════════════════════════════════════════════════════════════════════════
   - name: "Gateway_2"
     address: "105.114.21.18:502"
-    slave_id: 1
-    poll_interval: "10s"
+    slave_id: 2
+    poll_interval: "600s"
     tags:
 
       # ── Downstream Manifold Temperature (IM-TIT-001) ────────────────────────

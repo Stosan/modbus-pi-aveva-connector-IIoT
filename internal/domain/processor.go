@@ -127,7 +127,7 @@ func (p *Publisher) processPiWebAPIGateway(
 // readTagsLoop performs continuous sweeps over all tags locally for a gateway.
 func (p *Publisher) readTagsLoop(ctx context.Context,
 	pool *modbusPool, 
-	gateway config.Gateway,
+	gateway config.Gateway, 
 	omfClient *omf.Client, 
 	piWebService *piwebapi.ServiceClient,
 	metrics *GatewayMetrics) error {
@@ -142,16 +142,18 @@ func (p *Publisher) readTagsLoop(ctx context.Context,
         }
 
         var (
-            wg         sync.WaitGroup
-            errCount   atomic.Int32
+            wg           sync.WaitGroup
+            errCount     atomic.Int32
             successCount atomic.Int32
+            sem          = make(chan struct{}, 4) // bound concurrency to pool size
         )
 
         for _, tag := range gateway.Tags {
-            tag := tag // capture
+            sem <- struct{}{} // acquire slot before spawning
             wg.Add(1)
             go func() {
                 defer wg.Done()
+                defer func() { <-sem }() // release slot
 
                 // Acquire a connection from the pool (non-blocking with ctx)
                 conn, err := pool.Acquire(ctx)
@@ -240,8 +242,11 @@ func (p *Publisher) pushValue(
 // ─────────────────────────────────────────────────────────────────────────────
 func (p *Publisher) logSensorValue(log *zap.Logger, gateway string, tag config.Tag, value float32) {
 	unit := ""
-	if tag.DeviceType == "pressure" {
+	switch tag.DeviceType {
+	case "pressure":
 		unit = "PSI"
+	case "temperature":
+		unit = "°C"
 	}
 	log.Info("Sensor read",
 		zap.String("gateway", gateway),

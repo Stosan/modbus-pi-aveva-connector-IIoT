@@ -27,7 +27,7 @@ const (
 	backoffBase    = 2 * time.Second
 	backoffMax     = 120 * time.Second
 	backoffFactor  = 2.0
-	sweepInterval  = 10 * time.Second
+	sweepInterval  = 10 * time.Minute
 	connectTimeout = 10 * time.Second
 	readTimeout    = 5 * time.Second
 )

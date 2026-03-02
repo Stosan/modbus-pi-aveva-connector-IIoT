@@ -12,9 +12,10 @@ import (
 )
 
 type ServiceClient struct {
-	BaseURL  string
-	Username string
-	Password string
+	BaseURL    string
+	Username   string
+	Password   string
+	httpClient *http.Client
 }
 
 type StreamValue struct {
@@ -27,6 +28,11 @@ func NewServiceClient(baseURL, username, password string) *ServiceClient {
 		BaseURL:  baseURL,
 		Username: username,
 		Password: password,
+		httpClient: &http.Client{
+			Transport: &http.Transport{
+				TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
+			},
+		},
 	}
 }
 
@@ -55,11 +61,8 @@ payload := map[string]interface{}{
 	req.SetBasicAuth(c.Username, c.Password)
 	req.Header.Set("Content-Type", "application/json")
 	req.Header.Set("X-Requested-With", "go-client")
-	httpClient := &http.Client{Transport: &http.Transport{
-		TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
-	}}
 
-	resp, err := httpClient.Do(req)
+	resp, err := c.httpClient.Do(req)
 	if err != nil {
 		log.Printf("❌ PI Web API Push Error: %v", err)
 		return err
