@@ -23,6 +23,7 @@ type Config struct {
 type Gateway struct {
 	Name         string `yaml:"name"`
 	Address      string `yaml:"address"`
+	LocalAddress string `yaml:"localAddress"`
 	SlaveID      byte   `yaml:"slave_id"`
 	PollInterval string `yaml:"poll_interval"`
 	Tags         []Tag  `yaml:"tags"`

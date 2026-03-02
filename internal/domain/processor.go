@@ -79,6 +79,10 @@ func (p *Publisher) processPiWebAPIGateway(
     const poolSize = 4 // tune to your Modbus slave's concurrent connection limit
     delay := backoffBase
 
+    if !p.Debug{
+        gateway.Address = gateway.LocalAddress
+    }
+
     for {
         select {
         case <-ctx.Done():
